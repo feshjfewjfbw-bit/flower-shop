@@ -9,814 +9,116 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
-    /* ===================== База ===================== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f5faf6;
-      color: #3e5a4e;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-      border-radius: 24px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ===================== Кнопки ===================== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 50px;
-      border: none;
-      font-family: inherit;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .btn--primary {
-      background: #8bc0a5;
-      color: #ffffff;
-      box-shadow: 0 6px 18px rgba(139, 192, 165, 0.4);
-    }
-
-    .btn--primary:hover {
-      background: #77a88d;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(139, 192, 165, 0.5);
-    }
-
-    .btn--primary:active {
-      transform: translateY(-1px);
-    }
-
-    .btn--outline {
-      background: transparent;
-      color: #8bc0a5;
-      border: 2px solid #8bc0a5;
-    }
-
-    .btn--outline:hover {
-      background: #8bc0a5;
-      color: #ffffff;
-      transform: translateY(-3px);
-    }
-
-    /* ===================== Шапка ===================== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(245, 250, 246, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #d9e9df;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #4a6b5a;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo span {
-      color: #8bc0a5;
-      font-weight: 400;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      align-items: center;
-    }
-
-    nav a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #6e8478;
-      transition: color 0.25s ease;
-    }
-
-    nav a:hover {
-      color: #8bc0a5;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .cart {
-      position: relative;
-      display: flex;
-      align-items: center;
-      color: #6e8478;
-      font-size: 1.15rem;
-      transition: color 0.2s ease;
-    }
-
-    .cart:hover {
-      color: #8bc0a5;
-    }
-
-    .cart__counter {
-      position: absolute;
-      top: -9px;
-      right: -9px;
-      min-width: 20px;
-      height: 20px;
-      background: #8bc0a5;
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: scale(0);
-      transition: transform var(--transition);
-      border: 2px solid #fff;
-    }
-
-    .cart__counter.visible {
-      transform: scale(1);
-    }
-
-    /* ===================== Героя ===================== */
-    .hero {
-      padding: 110px 0 140px;
-      background: linear-gradient(135deg, #f5faf6 0%, #eef4ef 100%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.6rem, 5vw, 4.8rem);
-      line-height: 1.12;
-      margin-bottom: 22px;
-      letter-spacing: -0.02em;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #6e8478;
-      margin-bottom: 36px;
-      max-width: 480px;
-    }
-
-    .hero-image {
-      position: relative;
-      min-height: 560px;
-      background: #e3ece8;
-      border-radius: 32px;
-      overflow: hidden;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      box-shadow: 0 30px 70px rgba(60, 90, 75, 0.14);
-    }
-
-    .hero-image__fallback {
-      position: absolute;
-      inset: 0;
-      background: #d9e9df;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: #8bc0a5;
-    }
-
-    /* ===================== Статистика ===================== */
-    .stats {
-      padding: 64px 0;
-      background: #ffffff;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      text-align: center;
-    }
-
-    .stat-card {
-      padding: 40px 24px;
-      border-radius: 28px;
-      background: linear-gradient(145deg, #fdfdfe, #f2f7f4);
-      border: 1px solid #e3ece8;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 45px rgba(60, 90, 75, 0.07);
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: #8bc0a5;
-      display: block;
-      line-height: 1.2;
-    }
-
-    .stat-label {
-      margin-top: 10px;
-      font-size: 1rem;
-      color: #6e8478;
-      font-weight: 500;
-    }
-
-    /* ===================== О нас ===================== */
-    .about {
-      padding: 110px 0;
-      background: #fdfdfe;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about h2 {
-      font-size: 2.6rem;
-      color: #3e5a4e;
-      margin-bottom: 16px;
-    }
-
-    .about p {
-      color: #6e8478;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-    }
-
-    .about-image {
-      min-height: 420px;
-      background: #e3ece8;
-      border-radius: 32px;
-      overflow: hidden;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      box-shadow: 0 30px 70px rgba(60, 90, 75, 0.12);
-    }
-
-    .about-image__fallback {
-      position: absolute;
-      inset: 0;
-      background: #d9e9df;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: #8bc0a5;
-    }
-
-    .about-stats {
-      display: flex;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .about-stat {
-      text-align: center;
-    }
-
-    .about-stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #8bc0a5;
-      display: block;
-    }
-
-    .about-stat-label {
-      font-size: 0.9rem;
-      color: #6e8478;
-      margin-top: 4px;
-    }
-
-    /* ===================== Каталог ===================== */
-    .catalog {
-      padding: 110px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-header h2 {
-      font-size: 2.6rem;
-      color: #3e5a4e;
-      margin-bottom: 14px;
-    }
-
-    .section-header p {
-      font-size: 1.15rem;
-      color: #6e8478;
-    }
-
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid #e3ece8;
-      border-radius: 28px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #8bc0a5;
-      box-shadow: 0 18px 45px rgba(60, 90, 75, 0.07);
-    }
-
-    .card-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      background: #eef4ef;
-    }
-
-    .card-image__fallback {
-      width: 100%;
-      height: 100%;
-      background: #d9e9df;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: #8bc0a5;
-    }
-
-    .card-body {
-      padding: 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: #3e5a4e;
-      margin-bottom: 8px;
-    }
-
-    .card-desc {
-      font-size: 0.95rem;
-      color: #6e8478;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-
-    .card-footer {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .card-price {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #3e5a4e;
-    }
-
-    .card-btn {
-      padding: 10px 18px;
-      font-size: 0.85rem;
-      background: #f4ece9;
-      color: #7a5a64;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      font-family: inherit;
-      transition: 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .card-btn:hover {
-      background: #8bc0a5;
-      color: #fff;
-    }
-
-    .cart-toast {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #3e5a4e;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      box-shadow: 0 10px 25px rgba(60, 90, 75, 0.3);
-      transform: translateY(100px);
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      z-index: 1000;
-    }
-
-    .cart-toast.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    /* ===================== Доставка ===================== */
-    .delivery {
-      padding: 110px 0;
-      background: #ffffff;
-    }
-
-    .delivery-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .delivery h2 {
-      font-size: 2.6rem;
-      color: #3e5a4e;
-      margin-bottom: 16px;
-    }
-
-    .delivery p {
-      color: #6e8478;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-    }
-
-    .delivery-image {
-      min-height: 420px;
-      background: #e3ece8;
-      border-radius: 32px;
-      overflow: hidden;
-    }
-
-    .delivery-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      box-shadow: 0 30px 70px rgba(60, 90, 75, 0.12);
-    }
-
-    .delivery-image__fallback {
-      position: absolute;
-      inset: 0;
-      background: #d9e9df;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: #8bc0a5;
-    }
-
-    .delivery-info {
-      margin-top: 30px;
-    }
-
-    .delivery-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-      align-items: flex-start;
-    }
-
-    .delivery-item-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: #eef4ef;
-      color: #8bc0a5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-
-    .delivery-item-text strong {
-      color: #3e5a4e;
-      display: block;
-      font-size: 1rem;
-    }
-
-    .delivery-item-text span {
-      font-size: 0.95rem;
-      color: #6e8478;
-    }
-
-    /* ===================== Контакты ===================== */
-    .contacts {
-      padding: 110px 0;
-      background: #fdfdfe;
-    }
-
-    .contacts-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .contacts h2 {
-      font-size: 2.6rem;
-      color: #3e5a4e;
-      margin-bottom: 16px;
-    }
-
-    .contacts p {
-      color: #6e8478;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      align-items: center;
-    }
-
-    .contact-item-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background: #eef4ef;
-      color: #8bc0a5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
-
-    .contact-item-text strong {
-      color: #3e5a4e;
-      display: block;
-      font-size: 1rem;
-    }
-
-    .contact-item-text span {
-      font-size: 0.95rem;
-      color: #6e8478;
-    }
-
-    .contact-form {
-      background: #ffffff;
-      padding: 40px;
-      border-radius: 28px;
-      border: 1px solid #e3ece8;
-      box-shadow: 0 10px 30px rgba(60, 90, 75, 0.06);
-    }
-
-    .contact-form h3 {
-      font-size: 1.4rem;
-      color: #3e5a4e;
-      margin-bottom: 24px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.9rem;
-      color: #6e8478;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 18px;
-      border: 1px solid #e3ece8;
-      border-radius: 14px;
-      font-family: inherit;
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #8bc0a5;
-    }
-
-    .contact-message {
-      margin-top: 20px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      background: #e7f2ea;
-      color: #3e5a4e;
-      font-size: 0.95rem;
-      display: none;
-    }
-
-    /* ===================== Подвал ===================== */
-    footer {
-      background: #eef4ef;
-      border-top: 1px solid #dce8dd;
-      padding: 90px 0 44px;
-      color: #6e8478;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 240px 200px;
-      gap: 48px;
-    }
-
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #3e5a4e;
-      display: block;
-      margin-bottom: 16px;
-    }
-
-    .footer-logo span {
-      color: #8bc0a5;
-    }
-
-    .footer-text {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      max-width: 270px;
-    }
-
-    .footer-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: #3e5a4e;
-      margin-bottom: 20px;
-    }
-
-    .footer-links a,
-    .footer-social a {
-      display: block;
-      font-size: 0.98rem;
-      color: #6e8478;
-      margin-bottom: 14px;
-      transition: color 0.25s ease, transform 0.25s ease;
-    }
-
-    .footer-links a:hover,
-    .footer-social a:hover {
-      color: #8bc0a5;
-      transform: translateX(5px);
-    }
-
-    .footer-bottom {
-      margin-top: 70px;
-      padding-top: 32px;
-      border-top: 1px solid #dce8dd;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #a3b8ae;
-    }
-
-    /* ===================== Адаптив ===================== */
-    @media (max-width: 900px) {
-      .hero-grid,
-      .about-grid,
-      .delivery-grid,
-      .contacts-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 80px 0 100px;
-      }
-
-      .hero-image,
-      .about-image,
-      .delivery-image {
-        min-height: 400px;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .footer-grid {
-        gap: 32px;
-      }
-
-      .contact-form {
-        padding: 28px 24px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .header-actions .btn {
-        padding: 10px 20px;
-        font-size: 0.85rem;
-      }
-
-      .hero-image,
-      .about-image,
-      .delivery-image {
-        min-height: 320px;
-      }
-
-      .stat-number,
-      .about-stat-number {
-        font-size: 1.8rem;
-      }
-
-      .catalog-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #f5faf6; color: #3e5a4e; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; border-radius: 24px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 50px; border: none; font-family: inherit; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; }
+    .btn--primary { background: #8bc0a5; color: #ffffff; box-shadow: 0 6px 18px rgba(139, 192, 165, 0.4); }
+    .btn--primary:hover { background: #77a88d; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(139, 192, 165, 0.5); }
+    .btn--primary:active { transform: translateY(-1px); }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(245, 250, 246, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #d9e9df; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; flex-wrap: wrap; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #4a6b5a; display: flex; align-items: center; gap: 8px; }
+    .logo span { color: #8bc0a5; font-weight: 400; }
+    nav ul { display: flex; gap: 30px; list-style: none; align-items: center; }
+    nav a { font-size: 0.95rem; font-weight: 500; color: #6e8478; transition: color 0.25s ease; }
+    nav a:hover { color: #8bc0a5; }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .cart { position: relative; display: flex; align-items: center; color: #6e8478; font-size: 1.15rem; transition: color 0.2s ease; }
+    .cart:hover { color: #8bc0a5; }
+    .cart__counter { position: absolute; top: -9px; right: -9px; min-width: 20px; height: 20px; background: #8bc0a5; color: #fff; font-size: 0.75rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; transform: scale(0); transition: transform var(--transition); border: 2px solid #fff; }
+    .cart__counter.visible { transform: scale(1); }
+    .hero { padding: 110px 0 140px; background: linear-gradient(135deg, #f5faf6 0%, #eef4ef 100%); }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); line-height: 1.12; margin-bottom: 22px; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.2rem; color: #6e8478; margin-bottom: 36px; max-width: 480px; }
+    .hero-image { position: relative; min-height: 560px; background: #e3ece8; border-radius: 32px; overflow: hidden; }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; box-shadow: 0 30px 70px rgba(60, 90, 75, 0.14); }
+    .hero-image__fallback { position: absolute; inset: 0; background: #d9e9df; display: none; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #8bc0a5; }
+    .stats { padding: 64px 0; background: #ffffff; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; text-align: center; }
+    .stat-card { padding: 40px 24px; border-radius: 28px; background: linear-gradient(145deg, #fdfdfe, #f2f7f4); border: 1px solid #e3ece8; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .stat-card:hover { transform: translateY(-6px); box-shadow: 0 18px 45px rgba(60, 90, 75, 0.07); }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: #8bc0a5; display: block; line-height: 1.2; }
+    .stat-label { margin-top: 10px; font-size: 1rem; color: #6e8478; font-weight: 500; }
+    .about { padding: 110px 0; background: #fdfdfe; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about h2 { font-size: 2.6rem; color: #3e5a4e; margin-bottom: 16px; }
+    .about p { color: #6e8478; margin-bottom: 20px; font-size: 1.05rem; }
+    .about-image { min-height: 420px; background: #e3ece8; border-radius: 32px; overflow: hidden; }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; box-shadow: 0 30px 70px rgba(60, 90, 75, 0.12); }
+    .about-image__fallback { position: absolute; inset: 0; background: #d9e9df; display: none; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #8bc0a5; }
+    .about-stats { display: flex; gap: 30px; margin-top: 30px; }
+    .about-stat { text-align: center; }
+    .about-stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #8bc0a5; display: block; }
+    .about-stat-label { font-size: 0.9rem; color: #6e8478; margin-top: 4px; }
+    .catalog { padding: 110px 0; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-header h2 { font-size: 2.6rem; color: #3e5a4e; margin-bottom: 14px; }
+    .section-header p { font-size: 1.15rem; color: #6e8478; }
+    .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+    .card { background: #ffffff; border: 1px solid #e3ece8; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+    .card:hover { transform: translateY(-6px); border-color: #8bc0a5; box-shadow: 0 18px 45px rgba(60, 90, 75, 0.07); }
+    .card-image { width: 100%; height: 300px; object-fit: cover; background: #eef4ef; }
+    .card-image__fallback { width: 100%; height: 100%; background: #d9e9df; display: none; align-items: center; justify-content: center; font-size: 2rem; color: #8bc0a5; }
+    .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: #3e5a4e; margin-bottom: 8px; }
+    .card-desc { font-size: 0.95rem; color: #6e8478; margin-bottom: 16px; flex: 1; }
+    .card-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+    .card-price { font-weight: 600; font-size: 1.1rem; color: #3e5a4e; }
+    .card-btn { padding: 10px 18px; font-size: 0.85rem; background: #f4ece9; color: #7a5a64; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; font-family: inherit; transition: 0.3s ease; white-space: nowrap; }
+    .card-btn:hover { background: #8bc0a5; color: #fff; }
+    .cart-toast { position: fixed; bottom: 30px; right: 30px; background: #3e5a4e; color: #fff; padding: 12px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; box-shadow: 0 10px 25px rgba(60, 90, 75, 0.3); transform: translateY(100px); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 1000; }
+    .cart-toast.show { transform: translateY(0); opacity: 1; }
+    .delivery { padding: 110px 0; background: #ffffff; }
+    .delivery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .delivery h2 { font-size: 2.6rem; color: #3e5a4e; margin-bottom: 16px; }
+    .delivery p { color: #6e8478; margin-bottom: 20px; font-size: 1.05rem; }
+    .delivery-image { min-height: 420px; background: #e3ece8; border-radius: 32px; overflow: hidden; }
+    .delivery-image img { width: 100%; height: 100%; object-fit: cover; box-shadow: 0 30px 70px rgba(60, 90, 75, 0.12); }
+    .delivery-image__fallback { position: absolute; inset: 0; background: #d9e9df; display: none; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #8bc0a5; }
+    .delivery-info { margin-top: 30px; }
+    .delivery-item { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+    .delivery-item-icon { width: 40px; height: 40px; border-radius: 12px; background: #eef4ef; color: #8bc0a5; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .delivery-item-text strong { color: #3e5a4e; display: block; font-size: 1rem; }
+    .delivery-item-text span { font-size: 0.95rem; color: #6e8478; }
+    .contacts { padding: 110px 0; background: #fdfdfe; }
+    .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contacts h2 { font-size: 2.6rem; color: #3e5a4e; margin-bottom: 16px; }
+    .contacts p { color: #6e8478; margin-bottom: 20px; font-size: 1.05rem; }
+    .contact-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: center; }
+    .contact-item-icon { width: 44px; height: 44px; border-radius: 14px; background: #eef4ef; color: #8bc0a5; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .contact-item-text strong { color: #3e5a4e; display: block; font-size: 1rem; }
+    .contact-item-text span { font-size: 0.95rem; color: #6e8478; }
+    .contact-form { background: #ffffff; padding: 40px; border-radius: 28px; border: 1px solid #e3ece8; box-shadow: 0 10px 30px rgba(60, 90, 75, 0.06); }
+    .contact-form h3 { font-size: 1.4rem; color: #3e5a4e; margin-bottom: 24px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.9rem; color: #6e8478; margin-bottom: 8px; font-weight: 500; }
+    .form-group input, .form-group textarea { width: 100%; padding: 14px 18px; border: 1px solid #e3ece8; border-radius: 14px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.2s ease; }
+    .form-group input:focus, .form-group textarea:focus { border-color: #8bc0a5; }
+    .contact-message { margin-top: 20px; padding: 14px 18px; border-radius: 14px; background: #e7f2ea; color: #3e5a4e; font-size: 0.95rem; display: none; }
+    footer { background: #eef4ef; border-top: 1px solid #dce8dd; padding: 90px 0 44px; color: #6e8478; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 240px 200px; gap: 48px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #3e5a4e; display: block; margin-bottom: 16px; }
+    .footer-logo span { color: #8bc0a5; }
+    .footer-text { font-size: 0.95rem; line-height: 1.8; max-width: 270px; }
+    .footer-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #3e5a4e; margin-bottom: 20px; }
+    .footer-links a, .footer-social a { display: block; font-size: 0.98rem; color: #6e8478; margin-bottom: 14px; transition: color 0.25s ease, transform 0.25s ease; }
+    .footer-links a:hover, .footer-social a:hover { color: #8bc0a5; transform: translateX(5px); }
+    .footer-bottom { margin-top: 70px; padding-top: 32px; border-top: 1px solid #dce8dd; text-align: center; font-size: 0.85rem; color: #a3b8ae; }
+    @media (max-width: 900px) { .hero-grid, .about-grid, .delivery-grid, .contacts-grid, .footer-grid { grid-template-columns: 1fr; } .hero { padding: 80px 0 100px; } .hero-image, .about-image, .delivery-image { min-height: 400px; } nav { display: none; } .footer-grid { gap: 32px; } .contact-form { padding: 28px 24px; } }
+    @media (max-width: 640px) { .header-actions .btn { padding: 10px 20px; font-size: 0.85rem; } .hero-image, .about-image, .delivery-image { min-height: 320px; } .stat-number, .about-stat-number { font-size: 1.8rem; } .catalog-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
-  <!-- ============ Шапка ============ -->
   <header>
     <div class="container">
       <div class="header-inner">
         <a href="#hero" class="logo">Bloom<span>&</span>Petal</a>
-
         <nav>
           <ul>
             <li><a href="#hero">Главная</a></li>
@@ -826,7 +128,6 @@
             <li><a href="#contacts">Контакты</a></li>
           </ul>
         </nav>
-
         <div class="header-actions">
           <a href="#catalog" class="cart" aria-label="Корзина">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -842,7 +143,6 @@
     </div>
   </header>
 
-  <!-- ============ Героя ============ -->
   <section class="hero" id="hero">
     <div class="container">
       <div class="hero-grid">
@@ -852,38 +152,23 @@
           <a href="#catalog" class="btn btn--primary">Выбрать букет<span>→</span></a>
         </div>
         <div class="hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1490750967868-88cb44e724f5?auto=format&fit=crop&w=1200&q=80&fm=jpg"
-            alt="Нежный букет цветов"
-            onerror="this.style.display='none'; document.querySelector('.hero-image__fallback').style.display='flex';"
-          >
+          <img src="https://images.unsplash.com/photo-1557813123-f9efc098306a?auto=format&fit=crop&w=1200&q=80&fm=jpg" alt="Нежный букет цветов" onerror="this.style.display='none'; document.querySelector('.hero-image__fallback').style.display='flex';">
           <div class="hero-image__fallback">Изображение букета</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Статистика ============ -->
   <section class="stats">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-card">
-          <span class="stat-number">500+</span>
-          <span class="stat-label">букетов в месяц</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">2 часа</span>
-          <span class="stat-label">доставка по городу</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">98%</span>
-          <span class="stat-label">довольных клиентов</span>
-        </div>
+        <div class="stat-card"><span class="stat-number">500+</span><span class="stat-label">букетов в месяц</span></div>
+        <div class="stat-card"><span class="stat-number">2 часа</span><span class="stat-label">доставка по городу</span></div>
+        <div class="stat-card"><span class="stat-number">98%</span><span class="stat-label">довольных клиентов</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ О нас ============ -->
   <section class="about" id="about">
     <div class="container">
       <div class="about-grid">
@@ -892,354 +177,182 @@
           <p>Bloom & Petal — это маленькая мастерская с большим сердцем. Мы верим, что цветы могут сказать то, что сложно выразить словами.</p>
           <p>Каждый букет собирается вручную, с вниманием к каждому лепестку. Мы работаем только с проверенными фермами, чтобы ваши цветы радовали как можно дольше.</p>
           <div class="about-stats">
-            <div class="about-stat">
-              <span class="about-stat-number">2020</span>
-              <span class="about-stat-label">год основания</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat-number">10 000+</span>
-              <span class="about-stat-label">счастливых получателей</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat-number">7 дней</span>
-              <span class="about-stat-label">работаем без выходных</span>
-            </div>
+            <div class="about-stat"><span class="about-stat-number">2020</span><span class="about-stat-label">год основания</span></div>
+            <div class="about-stat"><span class="about-stat-number">10 000+</span><span class="about-stat-label">счастливых получателей</span></div>
+            <div class="about-stat"><span class="about-stat-number">7 дней</span><span class="about-stat-label">работаем без выходных</span></div>
           </div>
         </div>
         <div class="about-image">
-          <img
-            src="https://images.unsplash.com/photo-1518928334578-7e70b836e33c?auto=format&fit=crop&w=800&q=80&fm=jpg"
-            alt="Наша команда"
-            onerror="this.style.display='none'; document.querySelector('.about-image__fallback').style.display='flex';"
-          >
+          <img src="https://images.unsplash.com/photo-1518928334578-7e70b836e33c?auto=format&fit=crop&w=800&q=80&fm=jpg" alt="Наша команда" onerror="this.style.display='none'; document.querySelector('.about-image__fallback').style.display='flex';">
           <div class="about-image__fallback">Наша мастерская</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Каталог ============ -->
   <section class="catalog" id="catalog">
     <div class="container">
       <div class="section-header">
         <h2>Каталог букетов</h2>
         <p>Выберите идеальную композицию для любого случая</p>
       </div>
-
       <div class="catalog-grid">
         <div class="card">
-          <img
-            class="card-image"
-            src="https://images.unsplash.com/photo-1557813123-f9efc098306a?auto=format&fit=crop&w=600&q=80&fm=jpg"
-            alt="Нежность"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
+          <img class="card-image" src="https://images.unsplash.com/photo-1557813123-f9efc098306a?auto=format&fit=crop&w=600&q=80&fm=jpg" alt="Нежность" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="card-image__fallback">🌸</div>
           <div class="card-body">
             <h3 class="card-title">Нежность</h3>
             <p class="card-desc">Пионы, садовые розы и эустома в пастельных тонах.</p>
-            <div class="card-footer">
-              <span class="card-price">2 500 ₽</span>
-              <button class="card-btn" data-name="Нежность" data-price="2500" onclick="addToCart(this)">В корзину</button>
-            </div>
+            <div class="card-footer"><span class="card-price">2 500 ₽</span><button class="card-btn" data-name="Нежность" data-price="2500" onclick="addToCart(this)">В корзину</button></div>
           </div>
         </div>
         <div class="card">
-          <img
-            class="card-image"
-            src="https://images.unsplash.com/photo-1490750967868-88cb44e724f5?auto=format&fit=crop&w=600&q=80&fm=jpg"
-            alt="Весенний свет"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
+          <img class="card-image" src="https://images.unsplash.com/photo-1490750967868-88cb44e724f5?auto=format&fit=crop&w=600&q=80&fm=jpg" alt="Весенний свет" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="card-image__fallback">🌷</div>
           <div class="card-body">
             <h3 class="card-title">Весенний свет</h3>
             <p class="card-desc">Тюльпаны, ранункулюсы и ветки оливы.</p>
-            <div class="card-footer">
-              <span class="card-price">1 900 ₽</span>
-              <button class="card-btn" data-name="Весенний свет" data-price="1900" onclick="addToCart(this)">В корзину</button>
-            </div>
+            <div class="card-footer"><span class="card-price">1 900 ₽</span><button class="card-btn" data-name="Весенний свет" data-price="1900" onclick="addToCart(this)">В корзину</button></div>
           </div>
         </div>
         <div class="card">
-          <img
-            class="card-image"
-            src="https://images.unsplash.com/photo-1590571389374-f704d7e9c95f?auto=format&fit=crop&w=600&q=80&fm=jpg"
-            alt="Романтик"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
+          <img class="card-image" src="https://images.unsplash.com/photo-1590571389374-f704d7e9c95f?auto=format&fit=crop&w=600&q=80&fm=jpg" alt="Романтик" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="card-image__fallback">🌹</div>
           <div class="card-body">
             <h3 class="card-title">Романтик</h3>
             <p class="card-desc">Белые пионовидные розы и гипсофила.</p>
-            <div class="card-footer">
-              <span class="card-price">3 200 ₽</span>
-              <button class="card-btn" data-name="Романтик" data-price="3200" onclick="addToCart(this)">В корзину</button>
-            </div>
+            <div class="card-footer"><span class="card-price">3 200 ₽</span><button class="card-btn" data-name="Романтик" data-price="3200" onclick="addToCart(this)">В корзину</button></div>
           </div>
         </div>
         <div class="card">
-          <img
-            class="card-image"
-            src="https://images.unsplash.com/photo-1464945639739-6726800e47a4?auto=format&fit=crop&w=600&q=80&fm=jpg"
-            alt="Пастель"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
+          <img class="card-image" src="https://images.unsplash.com/photo-1464945639739-6726800e47a4?auto=format&fit=crop&w=600&q=80&fm=jpg" alt="Пастель" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="card-image__fallback">💐</div>
           <div class="card-body">
             <h3 class="card-title">Пастель</h3>
             <p class="card-desc">Гортензия, эустома и веточки лаванды.</p>
-            <div class="card-footer">
-              <span class="card-price">2 700 ₽</span>
-              <button class="card-btn" data-name="Пастель" data-price="2700" onclick="addToCart(this)">В корзину</button>
-            </div>
+            <div class="card-footer"><span class="card-price">2 700 ₽</span><button class="card-btn" data-name="Пастель" data-price="2700" onclick="addToCart(this)">В корзину</button></div>
           </div>
         </div>
         <div class="card">
-          <img
-            class="card-image"
-            src="https://images.unsplash.com/photo-1534649423078-6e9122c49c25?auto=format&fit=crop&w=600&q=80&fm=jpg"
-            alt="Люкс"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
+          <img class="card-image" src="https://images.unsplash.com/photo-1534649423078-6e9122c49c25?auto=format&fit=crop&w=600&q=80&fm=jpg" alt="Люкс" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="card-image__fallback">💝</div>
           <div class="card-body">
             <h3 class="card-title">Люкс</h3>
             <p class="card-desc">Красные и blush-розы, эустома, эвкалипт.</p>
-            <div class="card-footer">
-              <span class="card-price">4 500 ₽</span>
-              <button class="card-btn" data-name="Люкс" data-price="4500" onclick="addToCart(this)">В корзину</button>
-            </div>
+            <div class="card-footer"><span class="card-price">4 500 ₽</span><button class="card-btn" data-name="Люкс" data-price="4500" onclick="addToCart(this)">В корзину</button></div>
           </div>
         </div>
         <div class="card">
-          <img
-            class="card-image"
-            src="https://images.unsplash.com/photo-1601856371775-2e104641609e?auto=format&fit=crop&w=600&q=80&fm=jpg"
-            alt="Delicate"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
+          <img class="card-image" src="https://images.unsplash.com/photo-1601856371775-2e104641609e?auto=format&fit=crop&w=600&q=80&fm=jpg" alt="Delicate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="card-image__fallback">🌼</div>
           <div class="card-body">
             <h3 class="card-title">Delicate</h3>
             <p class="card-desc">Белые лилии и ветки эвкалипта.</p>
-            <div class="card-footer">
-              <span class="card-price">2 100 ₽</span>
-              <button class="card-btn" data-name="Delicate" data-price="2100" onclick="addToCart(this)">В корзину</button>
-            </div>
+            <div class="card-footer"><span class="card-price">2 100 ₽</span><button class="card-btn" data-name="Delicate" data-price="2100" onclick="addToCart(this)">В корзину</button></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Доставка ============ -->
   <section class="delivery" id="delivery">
     <div class="container">
       <div class="delivery-grid">
         <div class="delivery-content">
           <h2>Доставка</h2>
           <p>Мы доставим ваш букет в тот же день — аккуратно, вовремя и с хорошим настроением.</p>
-
           <div class="delivery-info">
-            <div class="delivery-item">
-              <div class="delivery-item-icon">🚚</div>
-              <div class="delivery-item-text">
-                <strong>Доставка за 2 часа</strong>
-                <span>В пределах города после оформления заказа.</span>
-              </div>
-            </div>
-            <div class="delivery-item">
-              <div class="delivery-item-icon">📦</div>
-              <div class="delivery-item-text">
-                <strong>Бережная упаковка</strong>
-                <span>Крафт-бумага и специальный бокс, чтобы цветы не помялись.</span>
-              </div>
-            </div>
-            <div class="delivery-item">
-              <div class="delivery-item-icon">💳</div>
-              <div class="delivery-item-text">
-                <strong>Оплата любым способом</strong>
-                <span>Наличными курьеру или онлайн картой на сайте.</span>
-              </div>
-            </div>
+            <div class="delivery-item"><div class="delivery-item-icon">🚚</div><div class="delivery-item-text"><strong>Доставка за 2 часа</strong><span>В пределах города после оформления заказа.</span></div></div>
+            <div class="delivery-item"><div class="delivery-item-icon">📦</div><div class="delivery-item-text"><strong>Бережная упаковка</strong><span>Крафт-бумага и специальный бокс, чтобы цветы не помялись.</span></div></div>
+            <div class="delivery-item"><div class="delivery-item-icon">💳</div><div class="delivery-item-text"><strong>Оплата любым способом</strong><span>Наличными курьеру или онлайн картой на сайте.</span></div></div>
           </div>
-
-          <div class="delivery-item" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e3ece8;">
-            <div class="delivery-item-icon">💵</div>
-            <div class="delivery-item-text">
-              <strong>Стоимость доставки</strong>
-              <span>250 ₽ — бесплатно при заказе от 3000 ₽.</span>
-            </div>
-          </div>
+          <div class="delivery-item" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e3ece8;"><div class="delivery-item-icon">💵</div><div class="delivery-item-text"><strong>Стоимость доставки</strong><span>250 ₽ — бесплатно при заказе от 3000 ₽.</span></div></div>
         </div>
         <div class="delivery-image">
-          <img
-            src="https://images.unsplash.com/photo-1557813123-f9efc098306a?auto=format&fit=crop&w=800&q=80&fm=jpg"
-            alt="Доставка цветов"
-            onerror="this.style.display='none'; document.querySelector('.delivery-image__fallback').style.display='flex';"
-          >
+          <img src="https://images.unsplash.com/photo-1557813123-f9efc098306a?auto=format&fit=crop&w=800&q=80&fm=jpg" alt="Доставка цветов" onerror="this.style.display='none'; document.querySelector('.delivery-image__fallback').style.display='flex';">
           <div class="delivery-image__fallback">Доставка букетов</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Контакты ============ -->
   <section class="contacts" id="contacts">
     <div class="container">
       <div class="contacts-grid">
         <div class="contacts-content">
           <h2>Контакты</h2>
           <p>Есть вопросы? Напишите или позвоните — мы с радостью поможем подобрать букет.</p>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <div class="contact-item-text">
-              <strong>Адрес</strong>
-              <span>ул. Цветочная, д. 17, центр города</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📞</div>
-            <div class="contact-item-text">
-              <strong>Телефон</strong>
-              <span><a href="tel:+74951234567" style="color: inherit;">+7 (495) 123-45-67</a></span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">✉️</div>
-            <div class="contact-item-text">
-              <strong>Email</strong>
-              <span><a href="mailto:hello@bloom-petal.ru" style="color: inherit;">hello@bloom-petal.ru</a></span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">🕒</div>
-            <div class="contact-item-text">
-              <strong>Режим работы</strong>
-              <span>Ежедневно 9:00 — 21:00, без выходных</span>
-            </div>
-          </div>
-
-          <div style="margin-top: 30px;">
-            <div class="footer-title" style="margin-bottom: 16px;">Мы в соцсетях</div>
-            <div style="display: flex; gap: 12px;">
-              <a href="https://instagram.com/bloom_petal" target="_blank" style="width: 40px; height: 40px; border: 1px solid #d9e9df; border-radius: 50%; display: grid; place-items: center; color: #6e8478; transition: 0.3s;">IG</a>
-              <a href="https://t.me/bloom_petal" target="_blank" style="width: 40px; height: 40px; border: 1px solid #d9e9df; border-radius: 50%; display: grid; place-items: center; color: #6e8478; transition: 0.3s;">TG</a>
-              <a href="https://wa.me/74951234567" target="_blank" style="width: 40px; height: 40px; border: 1px solid #d9e9df; border-radius: 50%; display: grid; place-items: center; color: #6e8478; transition: 0.3s;">WA</a>
-            </div>
-          </div>
+          <div class="contact-item"><div class="contact-item-icon">📍</div><div class="contact-item-text"><strong>Адрес</strong><span>ул. Цветочная, д. 17, центр города</span></div></div>
+          <div class="contact-item"><div class="contact-item-icon">📞</div><div class="contact-item-text"><strong>Телефон</strong><span><a href="tel:+74951234567" style="color: inherit;">+7 (495) 123-45-67</a></span></div></div>
+          <div class="contact-item"><div class="contact-item-icon">✉️</div><div class="contact-item-text"><strong>Email</strong><span><a href="mailto:hello@bloom-petal.ru" style="color: inherit;">hello@bloom-petal.ru</a></span></div></div>
+          <div class="contact-item"><div class="contact-item-icon">🕒</div><div class="contact-item-text"><strong>Режим работы</strong><span>Ежедневно 9:00 — 21:00, без выходных</span></div></div>
+          <div style="margin-top: 30px;"><div class="footer-title" style="margin-bottom: 16px;">Мы в соцсетях</div><div style="display: flex; gap: 12px;">
+            <a href="https://instagram.com/bloom_petal" target="_blank" style="width: 40px; height: 40px; border: 1px solid #d9e9df; border-radius: 50%; display: grid; place-items: center; color: #6e8478; transition: 0.3s;">IG</a>
+            <a href="https://t.me/bloom_petal" target="_blank" style="width: 40px; height: 40px; border: 1px solid #d9e9df; border-radius: 50%; display: grid; place-items: center; color: #6e8478; transition: 0.3s;">TG</a>
+            <a href="https://wa.me/74951234567" target="_blank" style="width: 40px; height: 40px; border: 1px solid #d9e9df; border-radius: 50%; display: grid; place-items: center; color: #6e8478; transition: 0.3s;">WA</a>
+          </div></div>
         </div>
-
         <div class="contact-form">
           <h3>Напишите нам</h3>
           <form id="contact-form">
-            <div class="form-group">
-              <label for="name">Ваше имя</label>
-              <input type="text" id="name" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Телефон</label>
-              <input type="tel" id="phone" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Сообщение</label>
-              <textarea id="message" rows="4" style="width:100%;padding:14px 18px;border:1px solid #e3ece8;border-radius:14px;font-family:inherit;font-size:1rem;outline:none;resize:vertical;"></textarea>
-            </div>
+            <div class="form-group"><label for="name">Ваше имя</label><input type="text" id="name" required></div>
+            <div class="form-group"><label for="phone">Телефон</label><input type="tel" id="phone" required></div>
+            <div class="form-group"><label for="message">Сообщение</label><textarea id="message" rows="4" style="width:100%;padding:14px 18px;border:1px solid #e3ece8;border-radius:14px;font-family:inherit;font-size:1rem;outline:none;resize:vertical;"></textarea></div>
             <button type="submit" class="btn btn--primary" style="width:100%;">Отправить сообщение</button>
           </form>
-          <div class="contact-message" id="contact-message">
-            Спасибо! Мы свяжемся с вами в ближайшее время.
-          </div>
+          <div class="contact-message" id="contact-message">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Подвал ============ -->
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#hero" class="footer-logo">Bloom<span>&</span>Petal</a>
-          <p class="footer-text">Минималистичные букеты из свежих цветов с бережной доставкой по городу.</p>
-        </div>
-
-        <div class="footer-links">
-          <div class="footer-title">Разделы</div>
-          <a href="#catalog">Каталог</a>
-          <a href="#delivery">Доставка</a>
-          <a href="#about">О нас</a>
-          <a href="#contacts">Контакты</a>
-        </div>
-
-        <div class="footer-social">
-          <div class="footer-title">Мы в соцсетях</div>
-          <a href="https://instagram.com/bloom_petal" target="_blank">Instagram</a>
-          <a href="https://t.me/bloom_petal" target="_blank">Telegram</a>
-          <a href="https://wa.me/74951234567" target="_blank">WhatsApp</a>
-        </div>
+        <div class="footer-brand"><a href="#hero" class="footer-logo">Bloom<span>&</span>Petal</a><p class="footer-text">Минималистичные букеты из свежих цветов с бережной доставкой по городу.</p></div>
+        <div class="footer-links"><div class="footer-title">Разделы</div><a href="#catalog">Каталог</a><a href="#delivery">Доставка</a><a href="#about">О нас</a><a href="#contacts">Контакты</a></div>
+        <div class="footer-social"><div class="footer-title">Мы в соцсетях</div><a href="https://instagram.com/bloom_petal" target="_blank">Instagram</a><a href="https://t.me/bloom_petal" target="_blank">Telegram</a><a href="https://wa.me/74951234567" target="_blank">WhatsApp</a></div>
       </div>
-
-      <div class="footer-bottom">
-        © 2026 Bloom & Petal. Все права защищены.
-      </div>
+      <div class="footer-bottom">© 2026 Bloom & Petal. Все права защищены.</div>
     </div>
   </footer>
 
   <div class="cart-toast" id="cart-toast">Товар добавлен в корзину</div>
 
   <script>
-    /* ===================== Корзина ===================== */
     let cartCount = 0;
     const cartCounter = document.getElementById('cart-counter');
     const cartToast = document.getElementById('cart-toast');
-
     function addToCart(btn) {
       const name = btn.getAttribute('data-name');
       const price = btn.getAttribute('data-price');
       cartCount++;
       cartCounter.textContent = cartCount;
       if (cartCount > 0) cartCounter.classList.add('visible');
-
       cartToast.classList.add('show');
       setTimeout(() => cartToast.classList.remove('show'), 2000);
-
       console.log('Добавлено:', name, price);
     }
-
     document.querySelectorAll('.card-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        addToCart(this);
-      });
+      btn.addEventListener('click', function() { addToCart(this); });
     });
-
-    /* ===================== Плавная прокрутка ===================== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         const id = href.slice(1);
         if (!id) return;
         const el = document.getElementById(id);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
-
-    /* ===================== Форма контактов ===================== */
     const form = document.getElementById('contact-form');
     const message = document.getElementById('contact-message');
-
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       const original = btn.innerHTML;
       btn.innerHTML = 'Отправлено ✓';
       btn.style.background = '#77a88d';
-
       setTimeout(() => {
         btn.innerHTML = original;
         btn.style.background = '';
