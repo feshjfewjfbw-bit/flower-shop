@@ -193,64 +193,11 @@
   <section class="catalog" id="catalog">
     <div class="container">
       <div class="section-header">
-        <h2>Каталог букетов</h2>
-        <p>Выберите идеальную композицию для любого случая</p>
+        <h2>Герои Dota 2</h2>
+        <p>Выберите героя для подробной информации</p>
       </div>
       <div class="catalog-grid">
-        <div class="card">
-          <img class="card-image" src="https://picsum.photos/seed/nezhnost/600/400" alt="Нежность" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-image__fallback">🌸</div>
-          <div class="card-body">
-            <h3 class="card-title">Нежность</h3>
-            <p class="card-desc">Пионы, садовые розы и эустома в пастельных тонах.</p>
-            <div class="card-footer"><span class="card-price">2 500 ₽</span><button class="card-btn" data-name="Нежность" data-price="2500" onclick="addToCart(this)">В корзину</button></div>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-image" src="https://picsum.photos/seed/vesennyisvet/600/400" alt="Весенний свет" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-image__fallback">🌷</div>
-          <div class="card-body">
-            <h3 class="card-title">Весенний свет</h3>
-            <p class="card-desc">Тюльпаны, ранункулюсы и ветки оливы.</p>
-            <div class="card-footer"><span class="card-price">1 900 ₽</span><button class="card-btn" data-name="Весенний свет" data-price="1900" onclick="addToCart(this)">В корзину</button></div>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-image" src="https://picsum.photos/seed/romantik/600/400" alt="Романтик" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-image__fallback">🌹</div>
-          <div class="card-body">
-            <h3 class="card-title">Романтик</h3>
-            <p class="card-desc">Белые пионовидные розы и гипсофила.</p>
-            <div class="card-footer"><span class="card-price">3 200 ₽</span><button class="card-btn" data-name="Романтик" data-price="3200" onclick="addToCart(this)">В корзину</button></div>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-image" src="https://picsum.photos/seed/pastel/600/400" alt="Пастель" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-image__fallback">💐</div>
-          <div class="card-body">
-            <h3 class="card-title">Пастель</h3>
-            <p class="card-desc">Гортензия, эустома и веточки лаванды.</p>
-            <div class="card-footer"><span class="card-price">2 700 ₽</span><button class="card-btn" data-name="Пастель" data-price="2700" onclick="addToCart(this)">В корзину</button></div>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-image" src="https://picsum.photos/seed/lux/600/400" alt="Люкс" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-image__fallback">💝</div>
-          <div class="card-body">
-            <h3 class="card-title">Люкс</h3>
-            <p class="card-desc">Красные и blush-розы, эустома, эвкалипт.</p>
-            <div class="card-footer"><span class="card-price">4 500 ₽</span><button class="card-btn" data-name="Люкс" data-price="4500" onclick="addToCart(this)">В корзину</button></div>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-image" src="https://picsum.photos/seed/delicate/600/400" alt="Delicate" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-image__fallback">🌼</div>
-          <div class="card-body">
-            <h3 class="card-title">Delicate</h3>
-            <p class="card-desc">Белые лилии и ветки эвкалипта.</p>
-            <div class="card-footer"><span class="card-price">2 100 ₽</span><button class="card-btn" data-name="Delicate" data-price="2100" onclick="addToCart(this)">В корзину</button></div>
-          </div>
-        </div>
+        <!-- Heroes will be rendered by JavaScript -->
       </div>
     </div>
   </section>
@@ -361,6 +308,43 @@
         setTimeout(() => { message.style.display = 'none'; }, 4000);
       }, 1200);
     });
+  </script>
+  <script>
+    // Render heroes from JSON
+    fetch('heroes.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.querySelector('.catalog-grid');
+        if (!container) return;
+
+        data.heroes.forEach(hero => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <img class="card-image" src="${hero.image_url}" alt="${hero.name}" loading="lazy" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="card-image__fallback">${hero.name.charAt(0).toUpperCase() + hero.name.slice(1)}</div>
+            <div class="card-body">
+              <h3 class="card-title">${hero.name}</h3>
+              <p class="card-desc">Роль: ${hero.role}<br>Основной атрибут: ${hero.primary_attribute.toUpperCase()}</p>
+              <p class="card-desc"><strong>Описание:</strong> ${hero.lore}</p>
+              <div class="card-footer">
+                <span class="card-price">ID: ${hero.id}</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="card-btn" onclick="event.stopPropagation()">Подробнее</button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error loading heroes:', error);
+        const container = document.querySelector('.catalog-grid');
+        if (container) {
+          container.innerHTML = '<p>Ошибка загрузки героев. Проверьте консоль.</p>';
+        }
+      });
   </script>
 </body>
 </html>

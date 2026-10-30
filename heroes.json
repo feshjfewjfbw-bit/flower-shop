@@ -1,0 +1,364 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Anti-Mage",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Mana Break", "Blink", "Mana Void", "Counterspell"],
+      "lore": "Once a slave of the magicians of old, Anti-Mage escaped their captivity and now seeks to destroy all magic, believing it is the source of the world's suffering. His legendary endurance allows him to burn through enemy mana with ease.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/anti-mage.png"
+    },
+    {
+      "id": 2,
+      "name": "Axe",
+      "primary_attribute": "agi",
+      "role": "Offlane",
+      "abilities": ["Berserker's Call", "Blink Dagger", "Culling Blade", "Battle Hunger"],
+      "lore": "Axe is a fearsome mercenary captain who seeks out the strongest opponents to test his might. His reputation as a hero of the Horde strikes terror into the hearts of enemies, who flee at the mere mention of his name. He cares little for strategy, preferring to let his axe do the talking.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/axe.png"
+    },
+    {
+      "id": 3,
+      "name": "Bane",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Brain Sap", "Nightmare", "Fiend's Grip", "Enfeeble"],
+      "lore": "Bane is the oldest of the ancient nightmares, a creature of pure darkness who feeds on the fears of mortals. His power to plunge enemies into eternal slumber is matched only by his ability to sap their very strength. He serves the darkness that predates the dawn of time itself.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/bane.png"
+    },
+    {
+      "id": 4,
+      "name": "Bloodseeker",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Blood Bomb", "Ruined Fate", "Thirst", "Blood Rite"],
+      "lore": "Bloodseeker prowls the battlefield sensing the scent of blood. The wounded are his prey, and he grows stronger with every drop of life spilled. His mere presence on the battlefield turns the tide of battle, as enemies are forced to reckon with their own mortality.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/bloodseeker.png"
+    },
+    {
+      "id": 5,
+      "name": "Crystal Maiden",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Crystal Nova", "Frostbite", "Arcane Aura", "Freezing Field"],
+      "lore": "Crystal Maiden was once a mortal princess gifted with ice magic, but her transformation left her as an embodiment of winter's chill. Her beauty is matched only by her power, as she freezes her foes solid with a single glance. She seeks to protect her people from the encroaching darkness.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/crystal-maiden.png"
+    },
+    {
+      "id": 6,
+      "name": "Drow Ranger",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Marksmanship", "Gust", "Frost Arrows", "Maim"],
+      "lore": "Drow Ranger is the swiftest archer of the Sentinel, her arrows finding their mark with uncanny precision. She guards the forests of her realm with lethal efficiency, and those who underestimate her do so at their peril. Her loyalty to the cause of light is unwavering.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/drow-ranger.png"
+    },
+    {
+      "id": 7,
+      "name": "Earthshaker",
+      "primary_attribute": "str",
+      "role": "Offlane",
+      "abilities": ["Fissure", "Aftershock", "Enchant Totem", "Echo Slam"],
+      "lore": "Earthshaker is an ancient earth elementalspirit who has walked the world since the dawn of time. His connection to the land grants him immense power over terrain, and he can shatter entire armies with a single stomp. He fights to protect the natural order from those who would disrupt it.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/earthshaker.png"
+    },
+    {
+      "id": 8,
+      "name": "Juggernaut",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Blade Fury", "Healing Ward", "Omnislash", "Blade Dance"],
+      "lore": "Juggernaut is a wandering warrior who seeks out the strongest opponents to test his steel. His mastery of blades is unmatched, and he can cut through any armor with ease. He fights not for glory, but for the thrill of the challenge, and those who face him better be prepared for a swift and painful end.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/juggernaut.png"
+    },
+    {
+      "id": 9,
+      "name": "Lion",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Hex", "Earth Spike", "Finger of Death", "Mana Drain"],
+      "lore": "Lion was once a powerful sorcerer who sought to cheat death itself. His ambition led him to forbidden knowledge, and he was transformed into a creature of pure magic. His hex can reduce even the mightiest enemy to helplessness, and his finger of death can slay any who stand in his way.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/lion.png"
+    },
+    {
+      "id": 10,
+      "name": "Lich",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Frost Armor", "Chain Frost", "Sacrifice", "Death Pulse"],
+      "lore": "Lich is an undead sorcerer who seeks to spread the cold of undeath across the land. His power over death is absolute, and he can raise the dead to do his bidding. Those who oppose him do so at their own risk, for his frost can freeze the heart of any mortal.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/lich.png"
+    },
+    {
+      "id": 11,
+      "name": "Lifestealer",
+      "primary_attribute": "str",
+      "role": "Carry",
+      "abilities": ["Infest", "Rage", "Infest", "Open Wounds"],
+      "lore": "Lifestealer was once a mortal alchemist who sought the secret of eternal life. His experiments left him as a creature of pure hunger, capable of consuming anything in his path. His rage makes him nearly unkillable, and his ability to heal from wounds makes him a formidable opponent on the battlefield.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/lifestealer.png"
+    },
+    {
+      "id": 12,
+      "name": "Puck",
+      "primary_attribute": "int",
+      "role": "Mid",
+      "abilities": ["Waning Rift", ** "Illusory Orb", **"Phase Shift", **"Dream Coil"],
+      "lore": "Puck is a playful and mischievous elemental spirit who embodies the chaotic energy of the universe. His abilities to manipulate time and space make him unpredictable in battle, and his dream coil can trap even the most agile opponents. He fights for the sheer joy of mischief.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/puck.png"
+    },
+    {
+      "id": 13,
+      "name": "Pudge",
+      "primary_attribute": "str",
+      "role": "Offlane",
+      "abilities": ["Meat Hook", "Dismember", "Rot", "Flesh Heap"],
+      "lore": "Pudge is a hulking butcher who roams the streets in search of fresh meat. His hook is legendary, and those who are caught by it are doomed to be dragged into his lair. He cares little for the affairs of heroes, but his appetite for flesh makes him a force to be reckoned with on the battlefield.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/pudge.png"
+    },
+    {
+      "id": 14,
+      "name": "Razor",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Static Link", "Plasma Field", "Eye of the Storm", "Unstable Current"],
+      "lore": "Razor is a living storm, a being of pure electricity who drains the strength of his enemies. His static link can drain the very essence of an opponent, making him weaker with each passing second. Those who face him must be prepared for a battle of attrition.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/razor.png"
+    },
+    {
+      "id": 15,
+      "name": "Shadow Fiend",
+      "primary_attribute": "int",
+      "role": "Mid",
+      "abilities": ["Presence of the Destroyer", "Shadowraze", "Requiem of the Damned", "Eul's Scepter of Divinity"],
+      "lore": "Shadow Fiend is a creature of pure shadow who feeds on the souls of the dead. His presence on the battlefield darkens the very sky, and his requiem of the damned can summon legions of spirits to do his bidding. He seeks to expand his dominion of eternal night.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/shadow-fiend.png"
+    },
+    {
+      "id": 16,
+      "name": "Silencer",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Glaives of Wisdom", "Arcane Curse", "Last Word", "Global Silence"],
+      "lore": "Silencer is a mysterious entity who seeks to mute the magic of the world. His global silence can shut down even the most powerful spells, and his last word can execute those who dare to cast. He fights for the silence that precedes the dawn.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/silencer.png"
+    },
+    {
+      "id": 17,
+      "name": "Storm Spirit",
+      "primary_attribute": "int",
+      "role": "Mid",
+      "abilities": ["Electric Vortex", "Ball Lightning", "Overload", "Dissipate"],
+      "lore": "Storm Spirit is an elemental creature of pure electricity who moves faster than the eye can track. His ball lightning can traverse the entire battlefield in seconds, and his overloaded strikes can paralyze even the mightiest heroes. He fights to bring the storm to those who would silence him.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/storm-spirit.png"
+    },
+    {
+      "id": 18,
+      "name": "Sven",
+      "primary_attribute": "str",
+      "role": "Carry",
+      "abilities": ["Great Cleave", "God Strength", "Storm Hammer", "Fury Swipes"],
+      "lore": "Sven is a legendary knight who sought to prove his worth in battle. His great cleave can cut through multiple enemies at once, and his god strength makes him nearly invincible. He fights for honor and glory, and those who stand in his way better be prepared for a crushing defeat.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/sven.png"
+    },
+    {
+      "id": 19,
+      "name": "Shadow Demon",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Disruption", "Soul Catcher", "Disjunction", "Mental Alacrity"],
+      "lore": "Shadow Demon is a creature of pure shadow who seeks to undermine the morale of his enemies. His disruption can split enemy formations, and his soul catcher can steal the very essence of his opponents. He fights for the darkness that lurks within us all.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/shadow-demon.png"
+    },
+    {
+      "id": 20,
+      "name": "Terrorblade",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Metamorphosis", "Conjure Image", "Sunder", "Metamorphosis"],
+      "lore": "Terrorblade is a demonic entity who seeks to spread chaos and destruction across the land. His metamorphosis can transform him into a monstrous form, and his conjure image can create illusions that confuse his enemies. He is feared by all who know his name.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/terrorblade.png"
+    },
+    {
+      "id": 21,
+      "name": "Windranger",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Shackles Shot", "Powershot", "Windrun", "Focus Fire"],
+      "lore": "Windranger is the guardian of the forest, an archer of unmatched skill who can control the very winds herself. Her powershot can strike from great distances, and her windrun can make her nearly untouchable. She fights to protect her home from those who would do it harm.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/windranger.png"
+    },
+    {
+      "id": 22,
+      "name": "Phoenix",
+      "primary_attribute": "str",
+      "role": "Offlane",
+      "abilities": ["Icarus Dive", "Sun Ray", "Supernova", "Fire Spirits"],
+      "lore": "Phoenix is an ancient fire elemental who cyclically burns himself away to be reborn from his own ashes. His sun ray can heal allies and damage enemies, and his supernova can wipe out entire armies. He fights for the cycle of life and death.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/phoenix.png"
+    },
+    {
+      "id": 23,
+      "name": "Pugna",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Nether Ward", "Life Drain", "Decrepify", "Telekinesis"],
+      "lore": "Pugna is a powerful wizard who seeks to dominate the realm with his arcane might. His nether ward can devastate those who rely on magic, and his life drain can sap the very essence of his opponents. He fights for the supremacy of arcane magic.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/pugna.png"
+    },
+    {
+      "id": 24,
+      "name": "Tiny",
+      "primary_attribute": "str",
+      "role": "Carry",
+      "abilities": ["Toss", "Grow", "Tree Grab", "Tree Volley"],
+      "lore": "Tiny is an ancient earth elemental who has walked the world since the dawn of time. His grow can increase his size and strength, and his tree grab can crush enemies with a single throw. He fights to protect the natural order from those who would disrupt it.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/tiny.png"
+    },
+    {
+      "id": 25,
+      "name": "Vengeful Spirit",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Magic Missile", "Wave of Terror", "Nether Swap", "Mystic Flare"],
+      "lore": "Vengeful Spirit is a creature of pure vengeance who seeks to right the wrongs of the past. Her magic missile can silence her enemies, and her nether swap can transport them to hellish realms. She fights for the justice that was denied her in life.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/vengeful-spirit.png"
+    },
+    {
+      "id": 26,
+      "name": "Witch Doctor",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Voodoo Restoration", "Maledict", "Paralyzing Cask", "Death Ward"],
+      "lore": "Witch Doctor is a tribal healer who wields the power of dark magic. His voodoo restoration can heal allies, and his maledict can curse his enemies to take damage over time. His death ward can summon spirits to do his bidding. He fights for the traditions of his people.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/witch-doctor.png"
+    },
+    {
+      "id": 27,
+      "name": "Zeus",
+      "primary_attribute": "int",
+      "role": "Mid",
+      "abilities": ["Arc Lightning", "Thundergods Wrath", "Nimbus", "Dark Thunder"],
+      "lore": "Zeus is the supreme god of the pantheon, wielding the power of lightning itself. His arc lightning can strike multiple enemies at once, and his thunder god's wrath can level entire armies. He fights for the preservation of order and justice.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/zeus.png"
+    },
+    {
+      "id": 28,
+      "name": "Kunkka",
+      "primary_attribute": "str",
+      "role": "Carry",
+      "abilities": ["Ghost Ship", "X Marks the Spot", "Torrent", "Tidebringer"],
+      "lore": "Kunkka is a legendary admiral who sails the seas in search of adventure. His tidebringer can cleave through enemy armor, and his ghost ship can rain destruction upon his foes. He fights for the honor of the high seas.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/kunkka.png"
+    },
+    {
+      "id": 29,
+      "name": "Luna",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Lucent Beam", "Eclipse", "Moon Glaives", "Moonlight Shadow"],
+      "lore": "Luna is the daughter of the moon, an embodiment of silver light who fights for the restoration of balance. Her lucent beam can heal allies and damage enemies, and her eclipse can plunge entire battlefields into darkness. She fights for the light that guides the lost.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/luna.png"
+    },
+    {
+      "id": 30,
+      "name": "Mirana",
+      "primary_attribute": "agi",
+      "role": "Support",
+      "abilities": ["Sacred Arrow", "Starstorm", "Leap", "Moonlight Shadow"],
+      "lore": "Mirana is the daughter of the moon, a guardian of the night who watches over the world. Her sacred arrow can strike from great distances, and her starstorm can rain down celestial fire. She fights for the light of the moon that guides the lost.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/mirana.png"
+    },
+    {
+      "id": 31,
+      "name": "Dazzle",
+      "primary_attribute": "int",
+      "role": "Support",
+      "abilities": ["Poison Touch", "Shadow Wave", "Weave", "Gravekeepers Glove"],
+      "lore": "Dazzle is a mysterious healer who wields the power of poison and healing. His poison touch can weaken enemies, and his shadow wave can heal allies. His weave can protect his team from damage. He fights for the balance between life and death.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/dazzle.png"
+    },
+    {
+      "id": 32,
+      "name": "Dark Seer",
+      "primary_attribute": "int",
+      "role": "Offlane",
+      "abilities": ["Vacuum", "Ice Path", "Wall of Disjunction", "Surge"],
+      "lore": "Dark Seer is an ancient entity who seeks to expand his influence across the realm. His vacuum can pull enemies into his grasp, and his ice path can create barriers of ice. His wall of disjunction can dispel magic, and his surge can enhance his allies' speed. He fights for the power of knowledge.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/dark-seer.png"
+    },
+    {
+      "id": 33,
+      "name": "Clinkz",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Searing Arrows", "Concussive Shot", "Spirit Breaker", "Death Pact"],
+      "lore": "Clinkz is a undead archer who roams the battlefield in search of fresh flesh. His searing arrows can set enemies ablaze, and his death pact can raise fallen allies as undead minions. He is feared by all who know his name.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/clinkz.png"
+    },
+    {
+      "id": 34,
+      "name": "Queen of Pain",
+      "primary_attribute": "agi",
+      "role": "Mid",
+      "abilities": ["Sonic Wave", "Shadow Strike", "Blink", "Sonar Shield"],
+      "lore": "Queen of Pain is a mysterious assassin who moves faster than the eye can track. Her sonic wave can strike from great distances, and her shadow strike can weaken her targets. Her blink can teleport her out of danger, and her sonar shield can protect her from harm. She fights for the thrill of the kill.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/queen-of-pain.png"
+    },
+    {
+      "id": 35,
+      "name": "Slardar",
+      "primary_attribute": "str",
+      "role": "Offlane",
+      "abilities": ["Amplify Damage", "Slithereen Crush", "Sprint", "Corrosive Haze"],
+      "lore": "Slardar is a fierce warrior of the deep sea who seeks to protect his underwater kingdom. His amplify damage can weaken enemy armor, and his slithereen crush can stun his foes. His sprint can make him nearly untouchable, and his corrosive haze can reveal invisible enemies. He fights for the pride of his people.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/slardar.png"
+    },
+    {
+      "id": 36,
+      "name": "Tidehunter",
+      "primary_attribute": "str",
+      "role": "Offlane",
+      "abilities": ["Gushing Waves", "Kraken Shell", "Ravage", "Anchor Drop"],
+      "lore": "Tidehunter is an ancient sea demon who has guarded the ocean depths since the dawn of time. His gushing waves can wash away entire armies, and his kraken shell can make him nearly unkillable. His rapture can stun all who stand in his way, and his anchor drop can impale his enemies. He fights for the preservation of the deep.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/tidehunter.png"
+    },
+    {
+      "id": 37,
+      "name": "Slark",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Pounce", "Dark Pact", "Essence Shift", "Purify"],
+      "lore": "Slark is a elusive predator who prowls the battlefield in search of fresh prey. His pounce can leap onto unsuspecting enemies, and his dark pact can remove debuffs. His essence shift can steal attributes, and his purify can remove negative effects. He fights for the thrill of the hunt.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/slark.png"
+    },
+    {
+      "id": 38,
+      "name": "Medusa",
+      "primary_attribute": "agi",
+      "role": "Carry",
+      "abilities": ["Mana Shield", "Stone Gaze", "Split Shot", "Mystic Snake"],
+      "lore": "Medusa is a gorgon who turns those who meet her gaze to stone. Her mana shield can absorb massive damage, and her stone gaze can freeze enemies in their tracks. Her split shot can strike multiple targets, and her mystic snake can drain mana. She fights for the preservation of her own existence.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/medusa.png"
+    },
+    {
+      "id": 39,
+      "name": "Tidehunter",
+      "primary_attribute": "str",
+      "role": "Offlane",
+      "abilities": ["Gushing Waves", "Kraken Shell", "Ravage", "Anchor Drop"],
+      "lore": "Tidehunter is an ancient sea demon who has guarded the ocean depths since the dawn of time. His gushing waves can wash away entire armies, and his kraken shell can make him nearly unkillable. His rapture can stun all who stand in his way, and his anchor drop can impale his enemies. He fights for the preservation of the deep.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/tidehunter.png"
+    },
+    {
+      "id": 40,
+      "name": "Marci",
+      "primary_attribute": "str",
+      "role": "Offlane",
+      "abilities": ["Sidekick", "Reball", "Unleash", "Disrupt"],
+      "lore": "Marci is a valiant warrior who fights for the cause of justice. Her sidekick can aid her in battle, and her reball can enhance her mobility. Her unleash can deal massive damage, and her disrupt can interrupt enemy channels. She fights for the protection of the innocent.",
+      "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/marci.png"
+    }
+  ]
+}
