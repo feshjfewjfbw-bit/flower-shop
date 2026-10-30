@@ -1,122 +1,130 @@
 [
   {
     "id": 1,
-    "name": "Нежная лаванда",
-    "price": 1890,
+    "name": "Букет бежевых роз",
+    "price": 2990,
     "category": "Букеты",
-    "description": "Букет из веточек лаванды нежного сиреневого оттенка. Придаст интерьеру атмосферу Прованса.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Нежная+лаванда"
+    "description": "Нежный букет из искусственных роз кремово-бежевого оттенка. Реалистичные бархатистые лепестки неотличимы от живых, а сам букет не вянет и не требует ухода — только ваза и хорошее настроение.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Artificial_beige_rose_bouquet.jpg/960px-Artificial_beige_rose_bouquet.jpg"
   },
   {
     "id": 2,
-    "name": "Белый пион",
-    "price": 2490,
-    "category": "Одиночные цветы",
-    "description": "Пышный искусственный пион белоснежного цвета. Идеален для свадебного декора и подарка.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Белый+пион"
+    "name": "Букет розовых роз",
+    "price": 3490,
+    "category": "Букеты",
+    "description": "Пышный букет из розовых искусственных роз с матовыми лепестками. Сохраняет свежий вид годами: не осыпается, не боится солнечного света и идеально держит форму.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Artificial_roses_at_Hatfield_Heath_Festival_2023_lighter.jpg/1280px-Artificial_roses_at_Hatfield_Heath_Festival_2023_lighter.jpg"
   },
   {
     "id": 3,
-    "name": "Весенний микс",
-    "price": 3290,
+    "name": "Пастельный букет в белой вазе",
+    "price": 4290,
     "category": "Букеты",
-    "description": "Композиция из тюльпанов, нарциссов и сочной зелени. Настроение весны круглый год.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Весенний+микс"
+    "description": "Готовая композиция из нежно-розовых, лавандовых и кремовых искусственных цветов в белой вазе. Собран вручную, выглядит как настоящий и не требует ни полива, ни света.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Pastel_artificial_flower_bouquet_in_white_vase.jpg/1280px-Pastel_artificial_flower_bouquet_in_white_vase.jpg"
   },
   {
     "id": 4,
-    "name": "Розовая роза",
-    "price": 1590,
-    "category": "Одиночные цветы",
-    "description": "Классическая роза нежно-розового цвета. Неотличима от настоящей, но никогда не завянет.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Розовая+роза"
+    "name": "Букет в винтажном стиле",
+    "price": 2690,
+    "category": "Букеты",
+    "description": "Композиция в состаренной палитре — пудровые, приглушённые тона и благородная фактура. Искусственные цветы не вянут, поэтому ретро-букет будет радовать глаз годами.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Artificial_flowers_bouquet_oldfashioned.jpg/960px-Artificial_flowers_bouquet_oldfashioned.jpg"
   },
   {
     "id": 5,
-    "name": "Эвкалипт серебристый",
-    "price": 1290,
-    "category": "Одиночные цветы",
-    "description": "Ветки серебристого эвкалипта для букетов и декора. Свежий природный вид без ухода.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Эвкалипт+серебристый"
+    "name": "Букет алых роз в вазе",
+    "price": 3190,
+    "category": "Букеты",
+    "description": "Насыщенный букет из алых искусственных роз в декоративной вазе. Лепестки с естественными прожилками не теряют цвет и не осыпаются — эффектный акцент для гостиной.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Artificial_roses_in_a_vase.jpg/1280px-Artificial_roses_in_a_vase.jpg"
   },
   {
     "id": 6,
-    "name": "Гортензия кремовая",
-    "price": 2190,
-    "category": "Одиночные цветы",
-    "description": "Объёмное соцветие кремовой гортензии. Отличный акцент для вазы или подарочной композиции.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Гортензия+кремовая"
+    "name": "Букет тюльпанов",
+    "price": 2390,
+    "category": "Букеты",
+    "description": "Искусственные тюльпаны на длинных стеблях — свежий весенний вид в любое время года. Не требуют воды и не вянут, поэтому букет останется ярким навсегда.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Artificial_tulips.JPG/1280px-Artificial_tulips.JPG"
   },
   {
     "id": 7,
-    "name": "Орхидея фаленопсис",
-    "price": 2790,
-    "category": "Одиночные цветы",
-    "description": "Элегантная ветка орхидеи с реалистичными лепестками. Роскошь, которая не требует полива.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Орхидея+фаленопсис"
+    "name": "Рождественский венок с амариллисом",
+    "price": 3890,
+    "category": "Букеты",
+    "description": "Праздничный венок из еловых веток с искусственным амариллисом и шёлковыми цветами. Долговечное украшение: доставайте его каждую зиму — он будет как новый.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Adventskranz_mit_Amaryllis_aus_Kunst-_und_Seidenblumen.JPG/1280px-Adventskranz_mit_Amaryllis_aus_Kunst-_und_Seidenblumen.JPG"
   },
   {
     "id": 8,
-    "name": "Тюльпаны жёлтые",
-    "price": 1790,
+    "name": "Композиция из сухоцветов",
+    "price": 2790,
     "category": "Букеты",
-    "description": "Букет из семи жёлтых тюльпанов на длинных стеблях. Символ солнца и хорошего настроения.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Тюльпаны+жёлтые"
+    "description": "Красочная композиция из искусственных сухоцветов, закреплённая в готовом виде. Не осыпается, не теряет цвет и не требует ухода — стойкая красота для интерьера.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Colorful_Dry_Flowers_at_Mela.jpg/1280px-Colorful_Dry_Flowers_at_Mela.jpg"
   },
   {
     "id": 9,
-    "name": "Ромашковый букет",
-    "price": 1390,
+    "name": "Композиция в кашпо",
+    "price": 1590,
     "category": "Букеты",
-    "description": "Милый букет из полевых ромашек. Простота и уют в каждой детали.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Ромашковый+букет"
+    "description": "Небольшая готовая композиция из искусственных цветов в кашпо. Подойдёт для стола или подоконника и будет выглядеть одинаково свежо весь год.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Artificial_flowers_pot%2C_Tamil_Nadu.jpg/1280px-Artificial_flowers_pot%2C_Tamil_Nadu.jpg"
   },
   {
     "id": 10,
-    "name": "Пион коралловый",
-    "price": 2390,
+    "name": "Ветка орхидеи",
+    "price": 1890,
     "category": "Одиночные цветы",
-    "description": "Коралловый пион с бархатистыми лепестками. Тёплый акцент для гостиной или спальни.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Пион+коралловый"
+    "description": "Реалистичная ветка орхидеи с проработанными лепестками и бутонами. Искусственный цветок не вянет и не требует влажности — изящный акцент для спальни или гостиной.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Forest_orchid_group_botanical_models_by_Sebastian_Brandt_%28Reco-Brandt%29.jpg/960px-Forest_orchid_group_botanical_models_by_Sebastian_Brandt_%28Reco-Brandt%29.jpg"
   },
   {
     "id": 11,
-    "name": "Сухоцветы в вазе",
-    "price": 1990,
-    "category": "Букеты",
-    "description": "Готовая композиция из сухоцветов в керамической вазе. Не требует ни воды, ни света.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Сухоцветы+в+вазе"
+    "name": "Шёлковая гортензия",
+    "price": 1690,
+    "category": "Одиночные цветы",
+    "description": "Объёмная гортензия из шёлка с нежными соцветиями пастельного оттенка. Держит форму, не осыпается и прекрасно смотрится в одиночной вазе.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Ortensia_in_seta_-_Silk_hydrangea.jpg/1280px-Ortensia_in_seta_-_Silk_hydrangea.jpg"
   },
   {
     "id": 12,
-    "name": "Ландыши",
-    "price": 1490,
+    "name": "Роза под стеклянным куполом",
+    "price": 1590,
     "category": "Одиночные цветы",
-    "description": "Нежные ландыши на тонких стебельках. Деликатный акцент для рабочего стола.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Ландыши"
+    "description": "Одиночная искусственная роза под стеклянным куполом — романтичный готовый декор. Не требует ни полива, ни солнечного света и вечно выглядит как в первый день.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Artificial_rose_inside_a_glass_globe_-_2.jpg/1280px-Artificial_rose_inside_a_glass_globe_-_2.jpg"
   },
   {
     "id": 13,
-    "name": "Сирень",
-    "price": 2090,
+    "name": "Розы из пальмовых листьев",
+    "price": 1190,
     "category": "Одиночные цветы",
-    "description": "Пышная ветка сирени с мелкими соцветиями. Аромат весны без сезонных ограничений.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Сирень"
+    "description": "Розы ручной работы, мастерски свёрнутые из высушенных пальмовых листьев. Натуральный материал — но вечный результат: цветок не завянет и сохранит форму.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Roses_made_of_palm_leaves.jpg/1280px-Roses_made_of_palm_leaves.jpg"
   },
   {
     "id": 14,
-    "name": "Анемоны белые",
-    "price": 1690,
+    "name": "Искусственное растение магнолия",
+    "price": 3490,
     "category": "Одиночные цветы",
-    "description": "Белоснежные анемоны с контрастной серединкой. Минимализм и изящество.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Анемоны+белые"
+    "description": "Высокая искусственная магнолия с крупными глянцевыми листьями и цветами. Максимально реалистичный вид без хлопот — растению не нужны вода, свет и пересадка.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Mongolia_Artificial_plant.jpg/1280px-Mongolia_Artificial_plant.jpg"
   },
   {
     "id": 15,
-    "name": "Герберы микс",
-    "price": 2590,
-    "category": "Букеты",
-    "description": "Яркий букет из разноцветных гербер. Поднимет настроение в любом интерьере.",
-    "image": "https://placehold.co/400x400/e8f5e9/2e7d32?text=Герберы+микс"
+    "name": "Розовая лилия",
+    "price": 1390,
+    "category": "Одиночные цветы",
+    "description": "Одиночная лилия нежно-розового цвета с изящными тычинками. Искусственный цветок не вянет, не пахнет и не вызывает аллергию — вечная свежесть на вашем столе.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Pink_Artificial_Lily_Flowers.png"
+  },
+  {
+    "id": 16,
+    "name": "Лотос",
+    "price": 1490,
+    "category": "Одиночные цветы",
+    "description": "Искусственный лотос с тонкими лепестками, уложенными слоями, как у настоящего. Не требует воды и света — идеальный спокойный акцент в минималистичном интерьере.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Artificial_Lotus.jpg/1280px-Artificial_Lotus.jpg"
   }
 ]
