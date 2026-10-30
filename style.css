@@ -1,0 +1,504 @@
+/* ============================================
+   Bloom & Petal — искусственные цветы
+   Палитра: нежно-светло-зелёная, минимализм
+   ============================================ */
+
+:root {
+  --bg: #e8f5e9;              /* светлый фон */
+  --accent: #a5d6a7;          /* акцент */
+  --accent-dark: #81c784;     /* акцент при наведении */
+  --text: #1f3d2b;            /* тёмно-зелёный текст */
+  --text-muted: #5a7561;      /* приглушённый текст */
+  --white: #ffffff;
+  --border: #d3e8d4;
+  --radius: 16px;
+  --shadow: 0 8px 24px rgba(31, 61, 43, 0.08);
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Кнопки ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.btn--primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(232, 245, 233, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 72px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.logo span {
+  color: var(--accent-dark);
+  font-style: italic;
+}
+
+.nav__list {
+  display: flex;
+  gap: 32px;
+}
+
+.nav__list a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+
+.nav__list a:hover {
+  color: var(--text);
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.cart:hover {
+  background: var(--accent);
+  color: var(--text);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 112px 0;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  margin-bottom: 20px;
+}
+
+.hero__subtitle {
+  max-width: 560px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Секции ---------- */
+
+.section {
+  padding: 80px 0;
+}
+
+.section--about {
+  background: var(--white);
+}
+
+.section__header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 48px;
+}
+
+.section__title {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.section__subtitle {
+  color: var(--text-muted);
+}
+
+/* ---------- Сетка карточек товара ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Карточка товара (добавляется через JS) */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(31, 61, 43, 0.12);
+}
+
+.product-card__image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background: var(--bg);
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  flex: 1;
+}
+
+.product-card__title {
+  font-size: 1.3rem;
+}
+
+.product-card__price {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ---------- О нас: преимущества ---------- */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.benefit {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.benefit__icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.benefit__title {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.benefit__text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: #dcefd9;
+  border-top: 1px solid var(--border);
+  padding: 64px 0 32px;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.logo--footer {
+  display: inline-block;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+.footer__text {
+  color: var(--text-muted);
+  max-width: 320px;
+}
+
+.footer__title {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.footer__list li {
+  margin-bottom: 10px;
+  color: var(--text-muted);
+}
+
+.footer__list a {
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+
+.footer__list a:hover {
+  color: var(--text);
+}
+
+.footer__copyright {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Адаптивность ---------- */
+
+/* Планшеты: 2 колонки */
+@media (max-width: 900px) {
+  .grid,
+  .benefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Телефоны: 1 колонка */
+@media (max-width: 600px) {
+  .nav {
+    display: none;
+  }
+
+  .grid,
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 72px 0;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+}
+
+/* ---------- Фильтры каталога ---------- */
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: -8px 0 40px;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-dark);
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ---------- Карточка товара: кнопка ---------- */
+
+.product-card {
+  cursor: pointer;
+}
+
+.product-card__btn {
+  margin-top: 12px;
+}
+
+.grid__error {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---------- Модальное окно ---------- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(31, 61, 43, 0.45);
+}
+
+.modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(31, 61, 43, 0.25);
+  animation: modal-in 0.25s ease;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(31, 61, 43, 0.15);
+  transition: background 0.25s ease;
+}
+
+.modal__close:hover {
+  background: var(--bg);
+}
+
+.modal__image {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: var(--bg);
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+
+.modal__title {
+  font-size: 1.6rem;
+}
+
+.modal__desc {
+  color: var(--text-muted);
+}
+
+.modal__add {
+  align-self: flex-start;
+}
