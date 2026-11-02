@@ -20,7 +20,9 @@
         <ul class="nav__list">
           <li><a href="#hero">Главная</a></li>
           <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#about">О нас</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
       </nav>
@@ -37,11 +39,12 @@
   </header>
 
   <section class="hero" id="hero">
-    <div class="container">
+    <div class="hero__bg" role="img" aria-label="Букет нежно-розовых цветов"></div>
+    <div class="container hero__content">
       <span class="hero__eyebrow">Студия искусственных цветов</span>
       <h1 class="hero__title">Вечная красота, которая <em>не увядает</em></h1>
       <p class="hero__subtitle">Элегантные искусственные цветы для дома и подарков. Минимализм, натуральность и шарм — без ухода и забот.</p>
-      <a href="#catalog" class="btn btn--primary">Смотреть каталог</a>
+      <a href="#catalog" class="btn btn--primary hero__cta">Смотреть каталог</a>
     </div>
   </section>
 
@@ -60,6 +63,38 @@
     </div>
   </section>
 
+  <section class="section section--reviews" id="reviews">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Отзывы</h2>
+        <p class="section__subtitle">Нам доверяют самые важные моменты — вот что говорят наши клиенты.</p>
+      </div>
+      <div class="reviews">
+        <figure class="review">
+          <div class="review__stars" aria-label="Оценка: 5 из 5">★★★★★</div>
+          <blockquote class="review__text">
+            <p>Заказывала букет «Нежность пиона» в подарок маме — она в восторге! Цветы выглядят как живые, а доставили заказ уже на следующий день. Обязательно закажу ещё.</p>
+          </blockquote>
+          <figcaption class="review__author">Анна, Санкт-Петербург</figcaption>
+        </figure>
+        <figure class="review">
+          <div class="review__stars" aria-label="Оценка: 5 из 5">★★★★★</div>
+          <blockquote class="review__text">
+            <p>Украсила композициями всю гостиную — интерьер преобразился. Качество отличное: лепестки аккуратные, ничего не осыпается. Упаковали бережно, всё доехало в целости.</p>
+          </blockquote>
+          <figcaption class="review__author">Мария, Москва</figcaption>
+        </figure>
+        <figure class="review">
+          <div class="review__stars" aria-label="Оценка: 5 из 5">★★★★★</div>
+          <blockquote class="review__text">
+            <p>Искала букет для свадебной фотосессии — выбрали идеальный оттенок под наш стиль. Спасибо за консультацию и быструю доставку! Рекомендую всем подругам.</p>
+          </blockquote>
+          <figcaption class="review__author">Елена, Казань</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--about" id="about">
     <div class="container">
       <div class="section__header">
@@ -68,21 +103,76 @@
       </div>
       <ul class="benefits">
         <li class="benefit">
-          <span class="benefit__icon">🌿</span>
+          <span class="benefit__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+          </span>
           <h3 class="benefit__title">Искусственные цветы не вянут</h3>
           <p class="benefit__text">Они радуют глаз годами, не требуя полива и солнечного света.</p>
         </li>
         <li class="benefit">
-          <span class="benefit__icon">🎨</span>
+          <span class="benefit__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13.5" cy="6.5" r="1.5"></circle>
+              <circle cx="17.5" cy="10.5" r="1.5"></circle>
+              <circle cx="8.5" cy="7.5" r="1.5"></circle>
+              <circle cx="6.5" cy="12.5" r="1.5"></circle>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+            </svg>
+          </span>
           <h3 class="benefit__title">Ручная работа</h3>
           <p class="benefit__text">Каждый букет собираем вручную из качественных и реалистичных материалов.</p>
         </li>
         <li class="benefit">
-          <span class="benefit__icon">🚚</span>
+          <span class="benefit__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </span>
           <h3 class="benefit__title">Доставка по всей России</h3>
           <p class="benefit__text">Бережно упакуем и привезём ваш заказ в любой город.</p>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <section class="section section--faq" id="faq">
+    <div class="container container--narrow">
+      <div class="section__header">
+        <h2 class="section__title">Частые вопросы</h2>
+        <p class="section__subtitle">Собрали ответы на то, о чём спрашивают чаще всего.</p>
+      </div>
+      <div class="faq">
+        <details class="faq__item">
+          <summary class="faq__question">Как ухаживать за искусственными цветами?</summary>
+          <div class="faq__answer">
+            <p>Уход минимальный: раз в несколько недель смахивайте пыль мягкой кистью или протирайте лепестки сухой салфеткой. Держите композиции подальше от прямых солнечных лучей, чтобы цвета не выгорали.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Сколько идёт доставка?</summary>
+          <div class="faq__answer">
+            <p>По Москве доставляем за 1–2 дня, в другие города России — от 3 до 7 дней в зависимости от региона. Точный срок покажем при оформлении заказа, а трек-номер пришлём сразу после отправки.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Можно ли вернуть товар?</summary>
+          <div class="faq__answer">
+            <p>Да. Если композиция не подошла, её можно вернуть в течение 14 дней в исходном виде и упаковке. При браке или повреждении во время доставки мы бесплатно заменим товар или вернём деньги.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Делаете ли вы букеты на заказ?</summary>
+          <div class="faq__answer">
+            <p>Конечно! Соберём композицию по вашим пожеланиям: подберём оттенки, размер и оформление под интерьер или событие. Напишите нам в Telegram или позвоните — обсудим детали, изготовление занимает 3–5 дней.</p>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
