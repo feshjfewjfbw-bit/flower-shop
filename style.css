@@ -1049,7 +1049,110 @@ ul {
   color: #cfd8cb;
 }
 
+/* ---------- Кастомный курсор ---------- */
+
+/*
+   Класс has-custom-cursor ставит cursor.js — только на устройствах с мышью.
+   Все правила скрытия системного курсора заперты в @media (min-width: 769px),
+   поэтому на мобильных они просто не применяются.
+*/
+@media (min-width: 769px) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none;
+  }
+
+  /* Текст вне кликабельных блоков — обычный I-beam, чтобы не мешать чтению */
+  html.has-custom-cursor :is(p, h1, h2, h3, h4, h5, h6, li, dt, dd, blockquote,
+                              figcaption, label, span, em, strong, small) {
+    cursor: text;
+  }
+
+  /* Внутри кликабельного блока текст ведёт себя как сам блок */
+  html.has-custom-cursor :is(a, button, summary, .product-card, .filter-btn, .cart)
+    :is(p, h1, h2, h3, h4, h5, h6, li, span, em, strong, small, blockquote, figcaption) {
+    cursor: none;
+  }
+
+  /* Поля ввода — всегда текстовый курсор */
+  html.has-custom-cursor :is(input, textarea, select, [contenteditable="true"]) {
+    cursor: text;
+  }
+}
+
+/* Общие стили обоих слоёв курсора */
+.cursor-petal,
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 0.25s ease;
+}
+
+.cursor-petal--visible,
+.cursor-dot--visible {
+  opacity: 1;
+}
+
+.cursor-petal {
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+}
+
+/* Лепесток: SVG, чтобы форма читалась на любом фоне */
+.cursor-petal__shape {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: var(--accent);
+  fill-opacity: 0.8;
+  stroke: rgba(249, 247, 242, 0.85);
+  stroke-width: 1;
+  transform-origin: center;
+  transform: scale(0.92);
+  transition: transform 0.25s var(--ease), fill 0.25s var(--ease),
+              fill-opacity 0.25s var(--ease), stroke 0.25s var(--ease);
+}
+
+.cursor-petal__vein {
+  fill: none;
+  stroke: rgba(249, 247, 242, 0.6);
+  stroke-width: 0.8;
+  stroke-linecap: round;
+}
+
+/* Кликабельный элемент: лепесток крупнее и контрастнее */
+.cursor-petal--active .cursor-petal__shape {
+  fill: var(--accent-dark);
+  fill-opacity: 1;
+  stroke: rgba(249, 247, 242, 1);
+  transform: scale(1.25);
+}
+
+/* Точка-компаньон: показывает реальную позицию мыши */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--accent-dark);
+  transition: opacity 0.25s ease;
+}
+
 /* ---------- Адаптивность ---------- */
+
+/* Мобильные (≤768px): кастомный курсор выключен, используется стандартный */
+@media (max-width: 768px) {
+  .cursor-petal,
+  .cursor-dot {
+    display: none;
+  }
+}
 
 /* Планшеты: 2 колонки */
 @media (max-width: 900px) {
