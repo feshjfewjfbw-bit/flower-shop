@@ -25,12 +25,13 @@
         </ul>
       </nav>
 
-      <a href="#" class="cart" aria-label="Корзина">
+      <a href="cart.html" class="cart" aria-label="Корзина">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="9" cy="21" r="1"></circle>
           <circle cx="20" cy="21" r="1"></circle>
           <path d="M1 1h4l2.64 12.538A2 2 0 0 0 9.64 17h5.36a2 2 0 0 0 1.998-1.873L21.71 8H6"></path>
         </svg>
+        <span class="cart__badge" id="cart-badge" hidden>0</span>
       </a>
     </div>
   </header>
@@ -115,6 +116,7 @@
     </div>
   </footer>
 
+<script src="cart-store.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

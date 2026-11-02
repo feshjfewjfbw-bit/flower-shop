@@ -1,23 +1,23 @@
 /* ============================================
    Bloom & Petal — искусственные цветы
-   Палитра: тёплый кремовый фон + глубокий шалфейный акцент
+   Палитра: приглушённый пыльно-бежевый фон + серо-шалфейный акцент
    Типографика: Cormorant Garamond (заголовки) + Montserrat (текст)
    ============================================ */
 
 :root {
-  --bg: #faf7f0;                 /* кремовый фон */
-  --bg-soft: #f2ecdf;            /* тон секций */
-  --accent: #6b8f71;             /* шалфейный акцент */
-  --accent-dark: #4d6551;        /* акцент при наведении */
-  --accent-soft: #dfe8dc;        /* мягкий акцент для чипов */
-  --text: #2a3b2e;               /* глубокий зелёный текст */
-  --text-muted: #5f7264;         /* приглушённый текст */
-  --white: #ffffff;
-  --border: #e5ddcd;
+  --bg: #ece7dd;                 /* пыльно-бежевый фон */
+  --bg-soft: #e2dccf;            /* тон секций */
+  --accent: #7f8c7f;             /* приглушённый серо-шалфейный */
+  --accent-dark: #5c665c;        /* акцент при наведении */
+  --accent-soft: #d8dbd3;        /* мягкий акцент для чипов */
+  --text: #333a31;               /* глубокий серо-зелёный текст */
+  --text-muted: #5c6459;         /* приглушённый текст */
+  --white: #f9f7f2;              /* тёплый off-white для карточек */
+  --border: #d6cfbf;
   --radius: 20px;
-  --shadow-sm: 0 2px 8px rgba(42, 59, 46, 0.06);
-  --shadow: 0 10px 30px rgba(42, 59, 46, 0.10);
-  --shadow-lg: 0 24px 48px rgba(42, 59, 46, 0.16);
+  --shadow-sm: 0 2px 8px rgba(51, 58, 49, 0.06);
+  --shadow: 0 10px 30px rgba(51, 58, 49, 0.10);
+  --shadow-lg: 0 24px 48px rgba(51, 58, 49, 0.14);
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --font-heading: 'Cormorant Garamond', serif;
   --font-body: 'Montserrat', sans-serif;
@@ -36,8 +36,8 @@ html {
 body {
   font-family: var(--font-body);
   background:
-    radial-gradient(1200px 600px at 85% -10%, rgba(107, 143, 113, 0.10), transparent 60%),
-    radial-gradient(900px 500px at -10% 30%, rgba(212, 160, 122, 0.08), transparent 55%),
+    radial-gradient(1200px 600px at 85% -10%, rgba(127, 140, 127, 0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(168, 152, 138, 0.08), transparent 55%),
     var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -104,7 +104,7 @@ ul {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(250, 247, 240, 0.88);
+  background: rgba(236, 231, 221, 0.88);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -214,7 +214,7 @@ ul {
 }
 
 .section--about {
-  background: linear-gradient(180deg, transparent, rgba(107, 143, 113, 0.06) 20%, rgba(107, 143, 113, 0.06) 80%, transparent);
+  background: linear-gradient(180deg, transparent, rgba(127, 140, 127, 0.07) 20%, rgba(127, 140, 127, 0.07) 80%, transparent);
 }
 
 .section__header {
@@ -465,7 +465,7 @@ ul {
 .modal__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(26, 36, 28, 0.55);
+  background: rgba(35, 40, 34, 0.55);
   backdrop-filter: blur(4px);
 }
 
@@ -542,6 +542,212 @@ ul {
   align-self: flex-start;
 }
 
+/* ---------- Корзина: шапка ---------- */
+
+.cart {
+  position: relative;
+}
+
+.cart__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--accent-dark);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+/* ---------- Корзина: страница ---------- */
+
+.cart-page {
+  padding-top: 64px;
+}
+
+.cart-page__content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.cart-page__empty-state {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.cart-page__empty {
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cart-item__image {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: var(--bg-soft);
+  flex-shrink: 0;
+}
+
+.cart-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item__name {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.cart-item__unit-price {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.cart-item__qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px;
+}
+
+.qty-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s var(--ease);
+}
+
+.qty-btn:hover {
+  background: var(--accent-soft);
+}
+
+.qty-value {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cart-item__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cart-item__subtotal {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--accent-dark);
+}
+
+.cart-item__remove {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.25s var(--ease);
+}
+
+.cart-item__remove:hover {
+  color: #8a5a52;
+}
+
+.cart-summary {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cart-summary__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  color: var(--text-muted);
+}
+
+.cart-summary__row--total {
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cart-summary__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.cart-summary__clear {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.25s var(--ease);
+}
+
+.cart-summary__clear:hover {
+  color: #8a5a52;
+}
+
+/* Кнопка «Добавлено» в карточке товара */
+
+.product-card__btn--added {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  box-shadow: none;
+  transform: none;
+}
+
 /* ---------- Адаптивность ---------- */
 
 /* Планшеты: 2 колонки */
@@ -577,5 +783,16 @@ ul {
 
   .section {
     padding: 64px 0;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+  }
+
+  .cart-item__right {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
   }
 }

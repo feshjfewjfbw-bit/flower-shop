@@ -21,9 +21,21 @@ function renderProducts(list) {
       <div class="product-card__body">
         <h3 class="product-card__title">${product.name}</h3>
         <p class="product-card__price">${product.price.toLocaleString('ru-RU')} ₽</p>
-        <button class="btn btn--primary product-card__btn">Подробнее</button>
+        <button class="btn btn--primary product-card__btn" data-add-to-cart>Добавить в корзину</button>
       </div>
     `;
+
+    const addBtn = card.querySelector('[data-add-to-cart]');
+    addBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      CartStore.add(product);
+      addBtn.textContent = '✓ Добавлено';
+      addBtn.classList.add('product-card__btn--added');
+      setTimeout(() => {
+        addBtn.textContent = 'Добавить в корзину';
+        addBtn.classList.remove('product-card__btn--added');
+      }, 1500);
+    });
 
     card.addEventListener('click', () => openModal(product));
     grid.appendChild(card);
@@ -90,6 +102,16 @@ function openModal(product) {
   modalTitle.textContent = product.name;
   modalDesc.textContent = product.description;
   modal.classList.add('open');
+
+  const addBtn = modal.querySelector('.modal__add');
+  addBtn.onclick = () => {
+    CartStore.add(product);
+    addBtn.textContent = '✓ Добавлено в корзину';
+    setTimeout(() => {
+      addBtn.textContent = 'Добавить в корзину';
+      closeModal();
+    }, 1200);
+  };
 }
 
 function closeModal() {
@@ -98,10 +120,6 @@ function closeModal() {
 
 modal.querySelectorAll('[data-close]').forEach((el) => {
   el.addEventListener('click', closeModal);
-});
-
-modal.querySelector('.modal__add').addEventListener('click', () => {
-  alert('Товар добавлен!');
 });
 
 document.addEventListener('keydown', (event) => {

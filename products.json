@@ -73,6 +73,38 @@
   },
   {
     "id": 10,
+    "name": "Букет белых пионов",
+    "price": 3790,
+    "category": "Букеты",
+    "description": "Роскошный букет из белоснежных пионов с пышными многослойными лепестками. Искусственные цветы не вянут и не осыпаются — вечная элегантность для вашего интерьера.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Artificial_flowers_in_a_vase.jpg/960px-Artificial_flowers_in_a_vase.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Пион розовый шёлковый",
+    "price": 3890,
+    "category": "Одиночные цветы",
+    "description": "Розовый пион ручной работы из текстиля с бархатистой фактурой лепестков. Не вянет, не требует ухода и годами сохраняет нежный оттенок.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Pivoine_rose.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Букет роз в пастельных тонах",
+    "price": 2890,
+    "category": "Букеты",
+    "description": "Пышный букет из искусственных роз в нежной пастельной гамме. Сохраняет форму и цвет годами — не осыпается и не требует полива.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Artificial_flower-Iran_01.jpg/960px-Artificial_flower-Iran_01.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Букет нежных роз",
+    "price": 2490,
+    "category": "Букеты",
+    "description": "Воздушный букет из искусственных роз с мягкими переходами оттенков. Вечная свежесть без забот — не вянет, не осыпается и не боится солнца.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Artificial_flower-Iran_03.jpg/960px-Artificial_flower-Iran_03.jpg"
+  },
+  {
+    "id": 14,
     "name": "Ветка орхидеи",
     "price": 1890,
     "category": "Одиночные цветы",
@@ -80,7 +112,15 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Forest_orchid_group_botanical_models_by_Sebastian_Brandt_%28Reco-Brandt%29.jpg/960px-Forest_orchid_group_botanical_models_by_Sebastian_Brandt_%28Reco-Brandt%29.jpg"
   },
   {
-    "id": 11,
+    "id": 15,
+    "name": "Орхидея в кашпо",
+    "price": 2390,
+    "category": "Одиночные цветы",
+    "description": "Элегантная искусственная орхидея в декоративном кашпо. Не требует полива, влажности и специального ухода — идеальный вариант для офиса или дома.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Ch%E1%BA%ADu_lan_h%E1%BB%93_%C4%91i%E1%BB%87p_gi%E1%BA%A3_m%C3%A0u_v%C3%A0ng_%C4%91%E1%BB%83_c%E1%BA%A1nh_ch%E1%BA%ADu_lan_h%E1%BB%93_%C4%91i%E1%BB%87p_m%C3%A0u_tr%E1%BA%AFng.jpg/960px-Ch%E1%BA%ADu_lan_h%E1%BB%93_%C4%91i%E1%BB%87p_gi%E1%BA%A3_m%C3%A0u_v%C3%A0ng_%C4%91%E1%BB%83_c%E1%BA%A1nh_ch%E1%BA%ADu_lan_h%E1%BB%93_%C4%91i%E1%BB%87p_m%C3%A0u_tr%E1%BA%AFng.jpg"
+  },
+  {
+    "id": 16,
     "name": "Шёлковая гортензия",
     "price": 1690,
     "category": "Одиночные цветы",
@@ -88,7 +128,15 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Ortensia_in_seta_-_Silk_hydrangea.jpg/1280px-Ortensia_in_seta_-_Silk_hydrangea.jpg"
   },
   {
-    "id": 12,
+    "id": 17,
+    "name": "Композиция из искусственных цветов",
+    "price": 1790,
+    "category": "Одиночные цветы",
+    "description": "Изящная цветочная композиция ручной сборки из качественных искусственных материалов. Не вянет и сохраняет ухоженный вид на протяжении многих лет.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Artificial_flower-Iran_05.jpg/960px-Artificial_flower-Iran_05.jpg"
+  },
+  {
+    "id": 18,
     "name": "Роза под стеклянным куполом",
     "price": 1590,
     "category": "Одиночные цветы",
@@ -96,35 +144,19 @@
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Artificial_rose_inside_a_glass_globe_-_2.jpg/1280px-Artificial_rose_inside_a_glass_globe_-_2.jpg"
   },
   {
-    "id": 13,
-    "name": "Розы из пальмовых листьев",
-    "price": 1190,
-    "category": "Одиночные цветы",
-    "description": "Розы ручной работы, мастерски свёрнутые из высушенных пальмовых листьев. Натуральный материал — но вечный результат: цветок не завянет и сохранит форму.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Roses_made_of_palm_leaves.jpg/1280px-Roses_made_of_palm_leaves.jpg"
+    "id": 19,
+    "name": "Букет в деревянной вазе",
+    "price": 1290,
+    "category": "Букеты",
+    "description": "Компактный букет из искусственных цветов в резной деревянной вазе. Готовое решение для декора полки или стола — не вянет и не требует ухода.",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Bouquet_in_the_wooden_carved_vase.jpg/960px-Bouquet_in_the_wooden_carved_vase.jpg"
   },
   {
-    "id": 14,
-    "name": "Искусственное растение магнолия",
-    "price": 3490,
-    "category": "Одиночные цветы",
-    "description": "Высокая искусственная магнолия с крупными глянцевыми листьями и цветами. Максимально реалистичный вид без хлопот — растению не нужны вода, свет и пересадка.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Mongolia_Artificial_plant.jpg/1280px-Mongolia_Artificial_plant.jpg"
-  },
-  {
-    "id": 15,
+    "id": 20,
     "name": "Розовая лилия",
     "price": 1390,
     "category": "Одиночные цветы",
     "description": "Одиночная лилия нежно-розового цвета с изящными тычинками. Искусственный цветок не вянет, не пахнет и не вызывает аллергию — вечная свежесть на вашем столе.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Pink_Artificial_Lily_Flowers.png"
-  },
-  {
-    "id": 16,
-    "name": "Лотос",
-    "price": 1490,
-    "category": "Одиночные цветы",
-    "description": "Искусственный лотос с тонкими лепестками, уложенными слоями, как у настоящего. Не требует воды и света — идеальный спокойный акцент в минималистичном интерьере.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Artificial_Lotus.jpg/1280px-Artificial_Lotus.jpg"
   }
 ]
