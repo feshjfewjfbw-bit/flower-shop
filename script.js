@@ -7,6 +7,42 @@ const filterButtons = document.querySelectorAll('.filter-btn');
 
 const IMAGE_FALLBACK = 'https://placehold.co/600x400/ece7dd/7f8c7f?text=Flowers';
 
+// ---------- Toast-уведомления ----------
+
+const TOAST_DURATION = 2000;
+
+const toastContainer = document.createElement('div');
+toastContainer.className = 'toast-container';
+toastContainer.setAttribute('role', 'status');
+toastContainer.setAttribute('aria-live', 'polite');
+document.body.appendChild(toastContainer);
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `
+    <svg class="toast__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 6 9 17l-5-5"></path>
+    </svg>
+    <span></span>
+  `;
+  toast.querySelector('span').textContent = message;
+  toastContainer.appendChild(toast);
+
+  // Принудительный reflow: браузер фиксирует начальное состояние,
+  // после чего добавление класса запускает плавный переход
+  void toast.offsetWidth;
+  toast.classList.add('toast--visible');
+
+  setTimeout(() => {
+    toast.classList.remove('toast--visible');
+    toast.addEventListener('transitionend', () => toast.remove(), { once: true });
+    // Страховка, если transitionend не придёт (например, при prefers-reduced-motion)
+    setTimeout(() => toast.remove(), 400);
+  }, TOAST_DURATION);
+}
+
 // ---------- Hero: проверка фонового изображения ----------
 
 (() => {
@@ -43,6 +79,7 @@ function renderProducts(list) {
     addBtn.addEventListener('click', (event) => {
       event.stopPropagation();
       CartStore.add(product);
+      showToast('Товар добавлен в корзину');
       addBtn.textContent = '✓ Добавлено';
       addBtn.classList.add('product-card__btn--added');
       setTimeout(() => {
@@ -130,6 +167,7 @@ function openModal(product) {
   const addBtn = modal.querySelector('.modal__add');
   addBtn.onclick = () => {
     CartStore.add(product);
+    showToast('Товар добавлен в корзину');
     addBtn.textContent = '✓ Добавлено в корзину';
     setTimeout(() => {
       addBtn.textContent = 'Добавить в корзину';

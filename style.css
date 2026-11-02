@@ -310,12 +310,34 @@ ul {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  /* backwards: до старта карточка скрыта, после — transform свободен для hover */
+  animation: fadeInUp 0.6s var(--ease) backwards;
+}
+
+/* Каскадное появление карточек */
+.product-card:nth-child(1) { animation-delay: 0s; }
+.product-card:nth-child(2) { animation-delay: 0.1s; }
+.product-card:nth-child(3) { animation-delay: 0.2s; }
+.product-card:nth-child(4) { animation-delay: 0.3s; }
+.product-card:nth-child(5) { animation-delay: 0.4s; }
+.product-card:nth-child(6) { animation-delay: 0.5s; }
+.product-card:nth-child(n + 7) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(51, 58, 49, 0.16);
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(51, 58, 49, 0.18);
   border-color: var(--accent);
 }
 
@@ -337,7 +359,7 @@ ul {
   height: 280px;
   object-fit: cover;
   background: var(--bg-soft);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .product-card__body {
@@ -985,6 +1007,48 @@ ul {
   line-height: 1.7;
 }
 
+/* ---------- Toast-уведомления ---------- */
+
+.toast-container {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 320px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: rgba(51, 58, 49, 0.96);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast__icon {
+  flex-shrink: 0;
+  color: #cfd8cb;
+}
+
 /* ---------- Адаптивность ---------- */
 
 /* Планшеты: 2 колонки */
@@ -1038,6 +1102,32 @@ ul {
     width: 100%;
     align-items: center;
   }
+
+  /* Toast — на всю ширину экрана с отступами */
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    align-items: stretch;
+  }
+
+  .toast {
+    max-width: none;
+  }
+
+  /* Мобильные: отключаем каскад и тяжёлые анимации ради плавности */
+  .product-card {
+    animation: none;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+
+  /* На тач-экранах hover «залипает» — не увеличиваем изображение */
+  .product-card:hover .product-card__image {
+    transform: none;
+  }
 }
 
 /* Уважение к prefers-reduced-motion */
@@ -1045,8 +1135,10 @@ ul {
   * {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
   }
 
+  .product-card:hover,
   .product-card:hover .product-card__image {
     transform: none;
   }
