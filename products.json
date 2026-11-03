@@ -13,7 +13,8 @@
     "price": 3490,
     "category": "Букеты",
     "description": "Пышный букет из розовых искусственных роз с матовыми лепестками. Сохраняет свежий вид годами: не осыпается, не боится солнечного света и идеально держит форму.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Artificial_roses_at_Hatfield_Heath_Festival_2023_lighter.jpg/1280px-Artificial_roses_at_Hatfield_Heath_Festival_2023_lighter.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Artificial_roses_at_Hatfield_Heath_Festival_2023_lighter.jpg/1280px-Artificial_roses_at_Hatfield_Heath_Festival_2023_lighter.jpg",
+    "badge": "Хит"
   },
   {
     "id": 3,
@@ -21,7 +22,8 @@
     "price": 4290,
     "category": "Букеты",
     "description": "Готовая композиция из нежно-розовых, лавандовых и кремовых искусственных цветов в белой вазе. Собран вручную, выглядит как настоящий и не требует ни полива, ни света.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Pastel_artificial_flower_bouquet_in_white_vase.jpg/1280px-Pastel_artificial_flower_bouquet_in_white_vase.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Pastel_artificial_flower_bouquet_in_white_vase.jpg/1280px-Pastel_artificial_flower_bouquet_in_white_vase.jpg",
+    "badge": "Новинка"
   },
   {
     "id": 4,
@@ -69,7 +71,9 @@
     "price": 1590,
     "category": "Букеты",
     "description": "Небольшая готовая композиция из искусственных цветов в кашпо. Подойдёт для стола или подоконника и будет выглядеть одинаково свежо весь год.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Artificial_flowers_pot%2C_Tamil_Nadu.jpg/1280px-Artificial_flowers_pot%2C_Tamil_Nadu.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Artificial_flowers_pot%2C_Tamil_Nadu.jpg/1280px-Artificial_flowers_pot%2C_Tamil_Nadu.jpg",
+    "oldPrice": 1870,
+    "badge": "-15%"
   },
   {
     "id": 10,
@@ -77,7 +81,8 @@
     "price": 3790,
     "category": "Букеты",
     "description": "Роскошный букет из белоснежных пионов с пышными многослойными лепестками. Искусственные цветы не вянут и не осыпаются — вечная элегантность для вашего интерьера.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Artificial_flowers_in_a_vase.jpg/960px-Artificial_flowers_in_a_vase.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Artificial_flowers_in_a_vase.jpg/960px-Artificial_flowers_in_a_vase.jpg",
+    "badge": "Хит"
   },
   {
     "id": 11,
@@ -125,7 +130,8 @@
     "price": 1690,
     "category": "Одиночные цветы",
     "description": "Объёмная гортензия из шёлка с нежными соцветиями пастельного оттенка. Держит форму, не осыпается и прекрасно смотрится в одиночной вазе.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Ortensia_in_seta_-_Silk_hydrangea.jpg/1280px-Ortensia_in_seta_-_Silk_hydrangea.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Ortensia_in_seta_-_Silk_hydrangea.jpg/1280px-Ortensia_in_seta_-_Silk_hydrangea.jpg",
+    "badge": "Новинка"
   },
   {
     "id": 17,
@@ -149,7 +155,9 @@
     "price": 1290,
     "category": "Букеты",
     "description": "Компактный букет из искусственных цветов в резной деревянной вазе. Готовое решение для декора полки или стола — не вянет и не требует ухода.",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Bouquet_in_the_wooden_carved_vase.jpg/960px-Bouquet_in_the_wooden_carved_vase.jpg"
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Bouquet_in_the_wooden_carved_vase.jpg/960px-Bouquet_in_the_wooden_carved_vase.jpg",
+    "oldPrice": 1520,
+    "badge": "-15%"
   },
   {
     "id": 20,

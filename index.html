@@ -17,7 +17,7 @@
     <div class="container header__inner">
       <a href="#hero" class="logo">Bloom <span>&amp;</span> Petal</a>
 
-      <nav class="nav">
+      <nav class="nav" id="nav">
         <ul class="nav__list">
           <li><a href="#hero">Главная</a></li>
           <li><a href="#catalog">Каталог</a></li>
@@ -28,14 +28,23 @@
         </ul>
       </nav>
 
-      <a href="cart.html" class="cart" aria-label="Корзина">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="21" r="1"></circle>
-          <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.64 12.538A2 2 0 0 0 9.64 17h5.36a2 2 0 0 0 1.998-1.873L21.71 8H6"></path>
-        </svg>
-        <span class="cart__badge" id="cart-badge" hidden>0</span>
-      </a>
+      <div class="header__actions">
+        <a href="cart.html" class="cart" aria-label="Корзина">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.64 12.538A2 2 0 0 0 9.64 17h5.36a2 2 0 0 0 1.998-1.873L21.71 8H6"></path>
+          </svg>
+          <span class="cart__badge" id="cart-badge" hidden>0</span>
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" type="button"
+                aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -55,12 +64,66 @@
         <h2 class="section__title">Каталог</h2>
         <p class="section__subtitle">Наши композиции — это сочетание изящества и долговечности.</p>
       </div>
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">Все</button>
-        <button class="filter-btn" data-filter="Букеты">Букеты</button>
-        <button class="filter-btn" data-filter="Одиночные цветы">Одиночные цветы</button>
+      <div class="catalog-toolbar">
+        <div class="filters" role="tablist" aria-label="Категории">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Все <span class="filter-btn__count" data-count="all"></span></button>
+          <button class="filter-btn" data-filter="Букеты" role="tab" aria-selected="false">Букеты <span class="filter-btn__count" data-count="Букеты"></span></button>
+          <button class="filter-btn" data-filter="Одиночные цветы" role="tab" aria-selected="false">Одиночные цветы <span class="filter-btn__count" data-count="Одиночные цветы"></span></button>
+          <button class="filter-btn filter-btn--fav" id="fav-filter" type="button" aria-pressed="false">
+            <span aria-hidden="true">♥</span> Избранное <span class="filter-btn__count" id="fav-count"></span>
+          </button>
+        </div>
+
+        <div class="catalog-controls">
+          <div class="search">
+            <svg class="search__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5"></path>
+            </svg>
+            <input type="search" id="catalog-search" class="search__input" placeholder="Поиск по каталогу" aria-label="Поиск по каталогу">
+          </div>
+
+          <select id="catalog-sort" class="sort-select" aria-label="Сортировка">
+            <option value="default">По умолчанию</option>
+            <option value="asc">Сначала дешевле</option>
+            <option value="desc">Сначала дороже</option>
+          </select>
+        </div>
       </div>
+
       <div id="product-grid" class="grid"></div>
+
+      <div id="catalog-empty" class="catalog-empty" hidden>
+        <p class="catalog-empty__title">Ничего не найдено</p>
+        <p class="catalog-empty__text" id="catalog-empty-text">Попробуйте изменить запрос или сбросить фильтры.</p>
+        <button class="btn btn--outline" id="catalog-reset" type="button">Сбросить фильтры</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--steps" id="steps">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Как это работает</h2>
+        <p class="section__subtitle">Три шага от выбора до букета у вас дома.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="step__num">01</span>
+          <h3 class="step__title">Выберите</h3>
+          <p class="step__text">Подберите композицию в каталоге или закажите уникальную.</p>
+        </article>
+        <article class="step">
+          <span class="step__num">02</span>
+          <h3 class="step__title">Оформите заказ</h3>
+          <p class="step__text">Укажите контакты и способ доставки — оплата при получении.</p>
+        </article>
+        <article class="step">
+          <span class="step__num">03</span>
+          <h3 class="step__title">Получите</h3>
+          <p class="step__text">Бережно упакуем и привезём в удобное для вас время.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -145,6 +208,16 @@
           <h3 class="benefit__title">Доставка по всей России</h3>
           <p class="benefit__text">Бережно упакуем и привезём ваш заказ в любой город.</p>
         </li>
+        <li class="benefit">
+          <span class="benefit__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path>
+              <path d="M3 3v5h5"></path>
+            </svg>
+          </span>
+          <h3 class="benefit__title">14 дней на возврат</h3>
+          <p class="benefit__text">Не подошла композиция? Вернём деньги или заменим — без лишних вопросов.</p>
+        </li>
       </ul>
     </div>
   </section>
@@ -178,6 +251,12 @@
           <summary class="faq__question">Делаете ли вы букеты на заказ?</summary>
           <div class="faq__answer">
             <p>Конечно! Соберём композицию по вашим пожеланиям: подберём оттенки, размер и оформление под интерьер или событие. Напишите нам в Telegram или позвоните — обсудим детали, изготовление занимает 3–5 дней.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Как оплатить заказ?</summary>
+          <div class="faq__answer">
+            <p>Оплата при получении — наличными или картой курьеру, а также при самовывозе. Предоплата не требуется, кроме индивидуальных заказов.</p>
           </div>
         </details>
       </div>
