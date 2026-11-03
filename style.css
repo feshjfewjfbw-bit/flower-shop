@@ -882,7 +882,7 @@ ul {
 
 .reviews {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
 }
 
@@ -896,7 +896,12 @@ ul {
   padding: 36px 32px;
   box-shadow: var(--shadow-sm);
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  animation: fadeInUp 0.6s var(--ease) backwards;
 }
+
+.review:nth-child(2) { animation-delay: 0.12s; }
+.review:nth-child(3) { animation-delay: 0.24s; }
+.review:nth-child(4) { animation-delay: 0.36s; }
 
 .review:hover {
   transform: translateY(-6px);
@@ -1175,16 +1180,23 @@ ul {
   }
 }
 
-/* Телефоны: 1 колонка */
-@media (max-width: 600px) {
-  .nav {
-    display: none;
-  }
-
+/* Телефоны и узкие планшеты (< 768px): одна колонка */
+@media (max-width: 768px) {
   .grid,
   .benefits,
   .reviews {
     grid-template-columns: 1fr;
+  }
+
+  .product-card__image {
+    height: 240px;
+  }
+}
+
+/* Телефоны: 1 колонка */
+@media (max-width: 600px) {
+  .nav {
+    display: none;
   }
 
   .hero {
@@ -1218,11 +1230,8 @@ ul {
     max-width: none;
   }
 
-  /* Мобильные: отключаем каскад и тяжёлые анимации ради плавности */
-  .product-card {
-    animation: none;
-  }
-
+  /* Мобильные: убираем только hover-эффекты (на тач-экранах они «залипают»),
+     fade-in при загрузке оставляем — он дешёвый и задаёт ритм появления */
   .product-card:hover {
     transform: none;
   }
