@@ -31,6 +31,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Отступ, чтобы якорные ссылки не прятали заголовок под липкой шапкой */
+  scroll-padding-top: 92px;
 }
 
 body {
