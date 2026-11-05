@@ -5,8 +5,6 @@
 const grid = document.getElementById('product-grid');
 const filterButtons = document.querySelectorAll('.filter-btn[data-filter]');
 
-const IMAGE_FALLBACK = 'https://placehold.co/600x400/ece7dd/7f8c7f?text=Flowers';
-
 // ---------- Toast-уведомления ----------
 
 const TOAST_DURATION = 2000;
@@ -173,11 +171,17 @@ function renderProducts(list) {
       ? 'product-card__badge product-card__badge--sale'
       : 'product-card__badge';
 
+    // Все данные товара экранируются: даже если в products.json попадёт
+    // HTML или скрипт, он отобразится как текст, а не выполнится
+    const name = Safe.html(product.name);
+    const image = Safe.html(product.image);
+    const badge = Safe.html(product.badge);
+
     card.innerHTML = `
       <div class="product-card__image-wrap">
-        <img class="product-card__image" src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null;this.src='${IMAGE_FALLBACK}'">
-        ${product.badge ? `<span class="${badgeClass}">${product.badge}</span>` : ''}
-        <button class="product-card__fav" type="button" data-fav-id="${product.id}"
+        <img class="product-card__image" src="${image}" alt="${name}" loading="lazy">
+        ${badge ? `<span class="${badgeClass}">${badge}</span>` : ''}
+        <button class="product-card__fav" type="button" data-fav-id="${Number(product.id)}"
                 aria-pressed="${isFav}" aria-label="${isFav ? 'Убрать из избранного' : 'В избранное'}">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}"
                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
@@ -186,20 +190,25 @@ function renderProducts(list) {
         </button>
       </div>
       <div class="product-card__body">
-        <h3 class="product-card__title">${product.name}</h3>
+        <h3 class="product-card__title">${name}</h3>
         <div class="product-card__price-row">
-          <p class="product-card__price">${product.price.toLocaleString('ru-RU')} ₽</p>
-          ${product.oldPrice ? `<span class="product-card__old-price">${product.oldPrice.toLocaleString('ru-RU')} ₽</span>` : ''}
+          <p class="product-card__price">${formatPrice(product.price)}</p>
+          ${product.oldPrice ? `<span class="product-card__old-price">${formatPrice(product.oldPrice)}</span>` : ''}
         </div>
-        <button class="btn btn--primary product-card__btn" data-add-to-cart>Добавить в корзину</button>
-        <button class="product-card__details" data-details>Подробнее</button>
+        <button class="btn btn--primary product-card__btn" type="button" data-add-to-cart>Добавить в корзину</button>
+        <button class="product-card__details" type="button" data-details>Подробнее</button>
       </div>
     `;
+
+    attachImageFallback(card.querySelector('.product-card__image'));
 
     const addBtn = card.querySelector('[data-add-to-cart]');
     addBtn.addEventListener('click', (event) => {
       event.stopPropagation();
-      CartStore.add(product);
+      if (CartStore.add(product) === 0) {
+        showToast(`В корзине уже максимум — ${CartStore.MAX_QTY} шт.`);
+        return;
+      }
       showToast('Товар добавлен в корзину');
       addBtn.textContent = '✓ Добавлено';
       addBtn.classList.add('product-card__btn--added');
@@ -231,11 +240,7 @@ function renderProducts(list) {
 
 // ---------- Загрузка данных ----------
 
-fetch('products.json')
-  .then((response) => {
-    if (!response.ok) throw new Error('Не удалось загрузить products.json');
-    return response.json();
-  })
+Catalog.load()
   .then((data) => {
     products = data;
     updateCounts();
@@ -310,39 +315,18 @@ if (resetBtn) {
   });
 }
 
-// ---------- Мобильное меню ----------
-
-const navToggle = document.getElementById('nav-toggle');
-const navEl = document.getElementById('nav');
-
-if (navToggle && navEl) {
-  const setNavOpen = (open) => {
-    navEl.classList.toggle('is-open', open);
-    navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
-  };
-
-  navToggle.addEventListener('click', () => {
-    setNavOpen(!navEl.classList.contains('is-open'));
-  });
-
-  navEl.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => setNavOpen(false));
-  });
-}
-
 // ---------- Модальное окно ----------
 
 const modal = document.createElement('div');
 modal.className = 'modal';
 modal.innerHTML = `
   <div class="modal__overlay" data-close></div>
-  <div class="modal__dialog" role="dialog" aria-modal="true">
-    <button class="modal__close" data-close aria-label="Закрыть">&times;</button>
-    <img class="modal__image" src="" alt="" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ece7dd/7f8c7f?text=Flowers'">
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal__close" type="button" data-close aria-label="Закрыть">&times;</button>
+    <img class="modal__image" src="" alt="">
     <div class="modal__content">
       <span class="modal__category"></span>
-      <h3 class="modal__title"></h3>
+      <h3 class="modal__title" id="modal-title"></h3>
       <div class="modal__price-row">
         <span class="modal__price"></span>
         <span class="modal__old-price"></span>
@@ -354,7 +338,7 @@ modal.innerHTML = `
           <span class="qty-value" data-qty-value>1</span>
           <button type="button" class="qty-btn" data-qty="inc" aria-label="Больше">+</button>
         </div>
-        <button class="btn btn--primary modal__add">Добавить в корзину</button>
+        <button class="btn btn--primary modal__add" type="button">Добавить в корзину</button>
         <button class="modal__fav" type="button" aria-pressed="false" aria-label="В избранное">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
             <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path>
@@ -364,6 +348,7 @@ modal.innerHTML = `
     </div>
   </div>
 `;
+modal.inert = true; // закрытое окно недоступно с клавиатуры
 document.body.appendChild(modal);
 
 const modalImage = modal.querySelector('.modal__image');
@@ -378,6 +363,11 @@ const modalAddBtn = modal.querySelector('.modal__add');
 
 let modalProduct = null;
 let modalQty = 1;
+let modalReturnFocus = null;
+
+modalImage.addEventListener('error', () => {
+  if (modalImage.src !== IMAGE_FALLBACK) modalImage.src = IMAGE_FALLBACK;
+});
 
 function updateModalPrice() {
   if (!modalProduct) return;
@@ -396,33 +386,30 @@ function updateModalFav() {
 function openModal(product) {
   modalProduct = product;
   modalQty = 1;
+  modalReturnFocus = document.activeElement;
 
-  modalImage.onerror = () => {
-    modalImage.onerror = null;
-    modalImage.src = IMAGE_FALLBACK;
-  };
   modalImage.src = product.image;
   modalImage.alt = product.name;
   modalTitle.textContent = product.name;
   modalDesc.textContent = product.description;
   modalCategory.textContent = product.category;
-  modalPrice.textContent = `${product.price.toLocaleString('ru-RU')} ₽`;
-  modalOldPrice.textContent = product.oldPrice
-    ? `${product.oldPrice.toLocaleString('ru-RU')} ₽`
-    : '';
+  modalPrice.textContent = formatPrice(product.price);
+  modalOldPrice.textContent = product.oldPrice ? formatPrice(product.oldPrice) : '';
   modalOldPrice.hidden = !product.oldPrice;
   modalQtyValue.textContent = '1';
   modalAddBtn.textContent = 'Добавить в корзину';
   updateModalPrice();
   updateModalFav();
 
+  modal.inert = false;
   modal.classList.add('open');
+  modal.querySelector('.modal__close').focus();
 }
 
 modal.querySelectorAll('[data-qty]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const delta = btn.dataset.qty === 'inc' ? 1 : -1;
-    modalQty = Math.min(20, Math.max(1, modalQty + delta));
+    modalQty = Math.min(CartStore.MAX_QTY, Math.max(1, modalQty + delta));
     modalQtyValue.textContent = String(modalQty);
     updateModalPrice();
   });
@@ -437,8 +424,14 @@ modalFavBtn.addEventListener('click', () => {
 
 modalAddBtn.addEventListener('click', () => {
   if (!modalProduct) return;
-  CartStore.add(modalProduct, modalQty);
-  showToast('Товар добавлен в корзину');
+  const added = CartStore.add(modalProduct, modalQty);
+  if (added === 0) {
+    showToast(`В корзине уже максимум — ${CartStore.MAX_QTY} шт.`);
+    return;
+  }
+  showToast(added < modalQty
+    ? `Добавлено ${added} шт. — это максимум для одного товара`
+    : 'Товар добавлен в корзину');
   modalAddBtn.textContent = '✓ Добавлено в корзину';
   setTimeout(() => {
     modalAddBtn.textContent = 'Добавить в корзину';
@@ -447,8 +440,13 @@ modalAddBtn.addEventListener('click', () => {
 });
 
 function closeModal() {
+  if (!modal.classList.contains('open')) return;
   modal.classList.remove('open');
+  modal.inert = true;
   modalProduct = null;
+  // Возвращаем фокус туда, откуда открыли окно
+  if (modalReturnFocus && document.contains(modalReturnFocus)) modalReturnFocus.focus();
+  modalReturnFocus = null;
 }
 
 modal.querySelectorAll('[data-close]').forEach((el) => {
@@ -456,7 +454,25 @@ modal.querySelectorAll('[data-close]').forEach((el) => {
 });
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && modal.classList.contains('open')) {
+  if (!modal.classList.contains('open')) return;
+
+  if (event.key === 'Escape') {
     closeModal();
+    return;
+  }
+
+  // Tab не выходит за пределы открытого окна
+  if (event.key === 'Tab') {
+    const focusable = [...modal.querySelectorAll('button:not([disabled]), [href], input, select, textarea')];
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 });

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.wikimedia.org https://images.unsplash.com https://placehold.co; connect-src 'self' https://*.workers.dev; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Политика конфиденциальности Bloom & Petal.">
+  <meta name="robots" content="noindex">
+  <title>Политика конфиденциальности — Bloom & Petal</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%237f8c7f'/%3E%3Ctext x='16' y='23' font-size='17' text-anchor='middle' fill='%23f9f7f2'%3E%E2%9C%BF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">Bloom <span>&amp;</span> Petal</a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="index.html#catalog">Каталог</a></li>
+          <li><a href="index.html#about">О нас</a></li>
+          <li><a href="index.html#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="cart.html" class="cart" aria-label="Корзина">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.64 12.538A2 2 0 0 0 9.64 17h5.36a2 2 0 0 0 1.998-1.873L21.71 8H6"></path>
+          </svg>
+          <span class="cart__badge" id="cart-badge" hidden>0</span>
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" type="button"
+                aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section cart-page">
+    <div class="container">
+      <div class="section__header">
+        <h1 class="section__title">Политика конфиденциальности</h1>
+      </div>
+
+      <article class="legal">
+        <p>Редакция от <span class="legal__placeholder">[дата]</span>. Настоящая политика описывает, как <span class="legal__placeholder">[ФИО ИП / название ООО]</span>, ИНН <span class="legal__placeholder">[ИНН]</span>, ОГРН/ОГРНИП <span class="legal__placeholder">[номер]</span> (далее — «Продавец») обрабатывает персональные данные покупателей сайта Bloom &amp; Petal.</p>
+
+        <h2>1. Какие данные мы получаем</h2>
+        <ul>
+          <li>имя;</li>
+          <li>номер телефона;</li>
+          <li>адрес доставки и желаемая дата;</li>
+          <li>комментарий к заказу, в том числе текст открытки.</li>
+        </ul>
+        <p>Корзина и список избранного хранятся только в вашем браузере (localStorage) и на сервер не передаются.</p>
+
+        <h2>2. Зачем</h2>
+        <p>Только для оформления, подтверждения и доставки заказа, а также для связи с вами по этому заказу. Рекламные рассылки без отдельного согласия не отправляем.</p>
+
+        <h2>3. Как данные передаются и хранятся</h2>
+        <p>Данные формы заказа передаются по защищённому соединению (HTTPS) через сервис <span class="legal__placeholder">[Cloudflare Workers]</span> в рабочий чат продавца в <span class="legal__placeholder">[Telegram]</span>. Доступ к ним есть только у сотрудников, обрабатывающих заказы. Данные хранятся не дольше <span class="legal__placeholder">[срок, например 3 года]</span> с момента заказа или до отзыва согласия.</p>
+        <p>Мы не продаём и не передаём ваши данные третьим лицам, кроме службы доставки в объёме, необходимом для доставки заказа.</p>
+
+        <h2>4. Ваши права</h2>
+        <p>Вы можете запросить сведения о своих данных, их исправление или удаление, а также отозвать согласие на обработку, написав на <span class="legal__placeholder">[email]</span>. Мы ответим в течение 10 рабочих дней.</p>
+
+        <h2>5. Контакты</h2>
+        <p><span class="legal__placeholder">[ФИО ИП / название ООО]</span>, <span class="legal__placeholder">[юридический адрес]</span>, <span class="legal__placeholder">[email]</span>, <span class="legal__placeholder">[телефон]</span>.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo logo--footer">Bloom <span>&amp;</span> Petal</a>
+        <p class="footer__text">Интернет-магазин искусственных цветов. Элегантные композиции для вашего интерьера и особых поводов.</p>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+          <li><a href="mailto:hello@bloom-petal.ru">hello@bloom-petal.ru</a></li>
+          <li>г. Москва, ул. Цветочная, д. 17</li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__title">Мы в соцсетях</h3>
+        <ul class="footer__list">
+          <li><a href="https://instagram.com/bloom_petal" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://t.me/bloom_petal" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://vk.com/bloom_petal" target="_blank" rel="noopener">ВКонтакте</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <p class="footer__copyright">© 2026 Bloom &amp; Petal. Все права защищены.</p>
+    </div>
+  </footer>
+
+<script src="common.js"></script>
+<script src="cart-store.js"></script>
+<script src="cursor.js"></script>
+</body>
+</html>
